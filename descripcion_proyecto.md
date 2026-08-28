@@ -10,11 +10,11 @@ Este proyecto consiste en una página web temática de amor diseñada para celeb
 *   **Color Principal:** Morado 💜. La paleta de colores de la página, los detalles visuales y elementos como los corazones deben estar enfocados en tonos morados.
 
 ## Objetivos y Funcionalidades
-*   **Pantalla de Bienvenida y Contraseña (`pages/bienvenida.html`):** Una pantalla inicial centrada en una imagen estilo Polaroid ("tuyyoGatitos.png") como elemento principal, decorada con el título escrito a mano. Muestra un contador flotante en la esquina superior con los días que llevan juntos y, al iniciar, pide la fecha de aniversario (30-08-2023) como contraseña para acceder.
+*   **Pantalla de Bienvenida y Contraseña (`pages/bienvenida.html`):** Una pantalla inicial centrada en una imagen estilo Polaroid ("tuyyoGatitos.png") como elemento principal (acompañada de otras polaroids de fondo en forma de abanico), decorada con estrellas animadas formando constelaciones a la izquierda, y el título escrito a mano. Muestra un contador de días como nota y, al iniciar, pide la fecha de aniversario (30-08-2023) como contraseña para acceder.
 *   **Galería de Recuerdos (`pages/recuerdos.html`):** Una sección modular en formato álbum, donde Darling puede navegar por categorías de fotos estilo Polaroid. Contiene 6 álbumes principales: "Hamburguesas", "Comidas Varias", "Fotos Juntos", "Nuestros Viajes", "Otros Momentos" y "Nuestras Locuras". Al interactuar con un álbum, se abre una ventana modal con su respectiva galería de fotos.
 *   **Carta Interactiva (`pages/carta.html`):** Un espacio exclusivo, accesible tras ver los recuerdos, dedicado a una carta de aniversario.
 *   **Música Global (Continua):** El archivo raíz (`index.html`) actúa como un contenedor (iframe) que reproduce la canción "Eres Mi Tesoro" de Jesse & Joy. Incluye un pequeño reproductor flotante en la esquina inferior derecha para pausar/reproducir la música sin interrumpir la navegación.
-*   **Experiencia Emotiva y UX:** Animaciones suaves (como los corazones flotantes) y transiciones fluidas entre pantallas. El proyecto es 100% responsive, adaptándose a móviles, tablets y computadoras, manteniendo siempre una estética romántica y cálida.
+*   **Experiencia Emotiva y UX:** Animaciones suaves (como las estrellas flotantes) y transiciones fluidas entre pantallas. El proyecto es 100% responsive, adaptándose a móviles, tablets y computadoras, manteniendo siempre una estética romántica y cálida.
 
 ---
 *Este documento servirá como base para la planificación y desarrollo de la página web.*

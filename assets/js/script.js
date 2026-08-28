@@ -1,19 +1,25 @@
-// Generar corazones flotantes de fondo
-function createHearts() {
-  const container = document.getElementById("bg-hearts");
+// Generar estrellas reales de fondo (Cielo estrellado)
+function createStars() {
+  const container = document.getElementById("bg-stars");
   if (!container) return;
-  for (let i = 0; i < 20; i++) {
-    let heart = document.createElement("div");
-    heart.innerHTML = "💜";
-    heart.className = "bg-heart";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = Math.random() * 5 + 5 + "s";
-    heart.style.animationDelay = Math.random() * 5 + "s";
-    heart.style.fontSize = Math.random() * 20 + 10 + "px";
-    container.appendChild(heart);
+  for (let i = 0; i < 350; i++) {
+    let star = document.createElement("div");
+    star.className = "sky-star";
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.top = Math.random() * 100 + "vh";
+    
+    // Tamaños variables para simular cercanía/brillo
+    let size = Math.random() * 2.5 + 0.5;
+    star.style.width = size + "px";
+    star.style.height = size + "px";
+    
+    star.style.animationDuration = Math.random() * 3 + 2 + "s";
+    star.style.animationDelay = Math.random() * 5 + "s";
+    
+    container.appendChild(star);
   }
 }
-createHearts();
+createStars();
 
 // Inicializar reproductor de música persistente
 document.addEventListener("DOMContentLoaded", () => {

@@ -7,13 +7,29 @@
     <link rel="icon" type="image/png" href="../assets/img/tuyyoGatitos.png">
     <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
-<body style="opacity: 0; animation: fadeInPage 1s forwards;">
-    <!-- Corazones de fondo interactivos -->
-    <div class="bg-hearts" id="bg-hearts"></div>
+<body class="welcome-body" style="opacity: 0; animation: fadeInPage 1s forwards;">
+    <!-- Estrellas de fondo interactivas -->
+    <div class="bg-stars" id="bg-stars"></div>
 
     <!-- Pantalla 1: Bienvenida -->
     <div class="screen" id="welcome-screen">
         
+        <!-- Decoración Constelaciones (Hechas con la fuente Dancing Script y estrellas) -->
+        <div class="constellations-container">
+            <svg class="constellation-svg" viewBox="0 0 200 150">
+                <!-- Líneas tenues conectando las estrellas -->
+                <text x="20" y="100" font-family="'Dancing Script', cursive" font-size="90" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5">F</text>
+                <text x="120" y="100" font-family="'Dancing Script', cursive" font-size="90" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5">J</text>
+                
+                <!-- Puntos brillantes (estrellas) formando exactamente la letra -->
+                <text x="20" y="100" font-family="'Dancing Script', cursive" font-size="90" fill="none" stroke="#ffffff" stroke-width="5" stroke-dasharray="0, 15" stroke-linecap="round" class="const-star-text">F</text>
+                <text x="120" y="100" font-family="'Dancing Script', cursive" font-size="90" fill="none" stroke="#ffffff" stroke-width="5" stroke-dasharray="0, 15" stroke-linecap="round" class="const-star-text">J</text>
+                
+                <!-- Estrella brillante en medio -->
+                <text x="85" y="70" font-family="sans-serif" font-size="25" fill="rgba(255,255,255,0.9)" class="const-star-text">✨</text>
+            </svg>
+        </div>
+
         <!-- Baraja de Polaroids (2 izq - principal centro - 2 der) -->
         <div class="polaroid-deck">
             <!-- Izquierda lejana -->

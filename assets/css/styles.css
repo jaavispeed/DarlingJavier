@@ -16,9 +16,10 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--light);
-    color: var(--text-dark);
+    background: radial-gradient(circle at top center, #1a0b2e, #05020a);
+    color: #f5eef8;
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
 /* Nota escrita a mano (contador de días) */
@@ -34,8 +35,8 @@ body {
     z-index: 10;
 }
 
-/* Corazones flotantes de fondo */
-.bg-hearts {
+/* Estrellas flotantes de fondo */
+.bg-stars {
     position: fixed;
     top: 0;
     left: 0;
@@ -45,17 +46,71 @@ body {
     z-index: 0;
 }
 
-.bg-heart {
+/* Estrellas del cielo de fondo */
+.sky-star {
     position: absolute;
-    color: var(--heart);
-    font-size: 20px;
-    opacity: 0.5;
-    animation: floatUp 10s linear infinite;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+    opacity: 0.8;
+    animation: twinkleBg 3s infinite alternate;
 }
 
-@keyframes floatUp {
-    0% { transform: translateY(100vh) scale(0); opacity: 1; }
-    100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+@keyframes twinkleBg {
+    0% { opacity: 0.2; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Contenedor de Constelaciones (SVG) */
+.constellations-container {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    width: 250px;
+    height: 200px;
+    z-index: 0;
+    animation: floatMoon 8s ease-in-out infinite;
+    transform: rotate(-5deg);
+}
+
+.constellation-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.const-star-text {
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
+    animation: twinkleSvgBright 3s infinite alternate;
+}
+
+@keyframes twinkleSvgBright {
+    0% { opacity: 0.6; filter: drop-shadow(0 0 2px rgba(255,255,255,0.4)); }
+    100% { opacity: 1; filter: drop-shadow(0 0 10px rgba(255,255,255,1)); }
+}
+
+/* Fondo de Cielo Nocturno Negro Puro para la Bienvenida */
+body.welcome-body {
+    background: radial-gradient(circle at center, #0a0a0a, #000000); /* Negro real profundo */
+}
+
+body.welcome-body .handwritten-note {
+    color: #f5eef8; 
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+body.welcome-body .bg-star-floating {
+    color: #f5eef8; 
+    opacity: 0.15;
+}
+
+@keyframes floatMoon {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.3; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1.1); }
 }
 
 /* Contenedores principales */
@@ -82,13 +137,13 @@ body {
 
 h1, h2 {
     font-family: 'Dancing Script', cursive;
-    color: var(--primary);
+    color: #e8d5f8;
+    text-shadow: 0 0 10px rgba(142, 68, 173, 0.8);
 }
 
 #welcome-screen h1 {
     font-size: 4rem;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
 /* === BOTONES (Estándar del proyecto) === */
@@ -352,6 +407,7 @@ h1, h2 {
     #main-screen h2 { font-size: 2.2rem; }
     .envelope { width: 250px; height: 160px; }
     .letter-content { padding: 25px; }
+    .moon-decoration { font-size: 3.5rem; left: 10%; }
 
     .polaroid-deck { width: 240px; height: 360px; }
     .polaroid-deck .polaroid { width: 220px; }
@@ -373,7 +429,11 @@ h1, h2 {
     #main-screen h2 { font-size: 1.8rem; }
     .envelope { width: 200px; height: 130px; }
     .letter-content { padding: 20px; }
-
+    
+    .moon-decoration { font-size: 2.5rem; left: 2%; top: 20%; }
+    .moon-decoration .star { font-size: 0.8rem; }
+    .constellations-container { transform: scale(0.7) rotate(-5deg); left: -5%; top: 15%; }
+    
     .polaroid-deck { width: 180px; height: 280px; }
     .polaroid-deck .polaroid { width: 170px; padding: 8px 8px 35px 8px; }
     .polaroid-deck .polaroid img { width: 154px; height: 154px; }
