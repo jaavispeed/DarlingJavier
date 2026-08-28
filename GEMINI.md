@@ -7,7 +7,7 @@ Esta regla central aplica **SIEMPRE** en cada nueva petición para este reposito
    - La fecha de inicio es el **30 de agosto del 2023**.
    - Usa siempre el nombre **"Darling"** (es especial).
    - Mantén la estética basada en tonos morados 💜, animaciones suaves y textos emotivos, mágicos y cariñosos.
-   - **Estilo de Fotografías:** Todo el diseño fotográfico debe tener una estética de **fotos Polaroid** (marcos blancos asimétricos con una pequeña sombra), que es su estilo favorito.
+   - **Estilo de Fotografías:** Todo el diseño fotográfico debe tener una estética de **fotos Polaroid** (marcos blancos asimétricos con una pequeña sombra), que es su estilo favorito. Las clases CSS (`.polaroid`, `.polaroid-deck`, `.bg-polaroid-msg`, etc.) ya están estandarizadas en `assets/css/styles.css`. Consultar la skill `project-theme` para ver la estructura HTML y las reglas de diseño completas.
 
 2. **Programación Simple y SOLID**:
    - Evita la sobreingeniería. Usa HTML, CSS y JS puro y directo.
