@@ -21,30 +21,20 @@ body {
     overflow-x: hidden;
 }
 
-/* Contador flotante */
-.floating-counter {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: white;
-    padding: 10px 15px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    z-index: 100;
-    text-align: right;
-    border: 1px solid var(--light);
-}
-
-.fc-date {
-    font-size: 0.85rem;
-    color: #888;
-    margin-bottom: 2px;
+/* Contenedor romántico del contador (centrado) */
+.romantic-counter-container {
+    text-align: center;
+    margin-bottom: 25px;
+    z-index: 10;
+    padding: 0 15px;
 }
 
 .fc-days {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     color: var(--secondary);
     font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
 }
 
 /* Corazones flotantes de fondo */
@@ -369,6 +359,15 @@ h1, h2 {
     #main-screen h2 { font-size: 2.2rem; }
     .envelope { width: 250px; height: 160px; }
     .letter-content { padding: 25px; }
+
+    /* Ajuste de la baraja para móviles */
+    .polaroid-deck { width: 200px; height: 300px; }
+    .polaroid-deck .polaroid { width: 190px; }
+    .polaroid-deck .polaroid img { width: 170px; height: 170px; }
+    .bg-polaroid-msg { font-size: 0.8rem; }
+    .p-title { font-size: 1.1rem; }
+    .p-subtitle { font-size: 0.65rem; }
+    .p-date { font-size: 0.55rem; }
 }
 
 /* Estilo Polaroid para las fotos de los recuerdos */
@@ -393,4 +392,94 @@ h1, h2 {
     transform: scale(1.05) rotate(-2deg);
     box-shadow: 0 8px 25px rgba(0,0,0,0.2);
     z-index: 10;
+}
+
+/* --- BARAJA DE POLAROIDS (ESTILO ABANICO) --- */
+.polaroid-deck {
+    position: relative;
+    width: 280px;
+    height: 400px;
+    margin: 30px auto 35px;
+}
+
+/* Todas las polaroids del abanico comparten esto */
+.polaroid-deck .polaroid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 260px;
+    padding: 10px 10px 45px 10px;
+    transform-origin: 50% 95%;
+    transition: transform 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+    border-radius: 3px;
+}
+
+.polaroid-deck .polaroid img {
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 2px;
+    display: block;
+}
+
+/* Posiciones del abanico — simétrico: 2 izq, centro, 2 der */
+.bg-1 { transform: rotate(-30deg); z-index: 1; }
+.bg-2 { transform: rotate(-15deg); z-index: 2; }
+.bg-3 { transform: rotate(15deg);  z-index: 2; }
+.bg-4 { transform: rotate(30deg);  z-index: 1; }
+
+/* La polaroid principal — CENTRADA */
+.welcome-polaroid {
+    z-index: 5 !important;
+    transform: rotate(0deg);
+    padding: 10px 10px 30px 10px !important;
+}
+
+/* Hover sutil: el abanico se abre un poquito más */
+.polaroid-deck:hover .bg-1 { transform: rotate(-36deg); }
+.polaroid-deck:hover .bg-2 { transform: rotate(-18deg); }
+.polaroid-deck:hover .bg-3 { transform: rotate(18deg); }
+.polaroid-deck:hover .bg-4 { transform: rotate(36deg); }
+.polaroid-deck:hover .welcome-polaroid { transform: rotate(0deg) scale(1.03); }
+
+/* Mensajito escrito a mano en las polaroids de fondo */
+.bg-polaroid-msg {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1rem;
+    color: var(--text-dark);
+    text-align: center;
+    margin-top: 8px;
+    font-weight: 600;
+}
+
+/* Textos dentro de la polaroid principal */
+.polaroid-text {
+    text-align: center;
+    margin-top: 8px;
+}
+
+.p-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.p-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-top: 3px;
+}
+
+.p-date {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 300;
+    color: var(--secondary);
+    margin-top: 2px;
+    letter-spacing: 1px;
 }
