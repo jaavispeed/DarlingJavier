@@ -100,3 +100,70 @@ function calculateDays() {
   }
 }
 calculateDays();
+
+// Lógica de los Álbumes de Recuerdos
+const albumData = {
+    hamburguesas: {
+        title: 'Nuestra Favorita: ¡Hamburguesas! 🍔🍟',
+        folder: '../assets/img/hamburguesas',
+        placeholder: '📸 (Las fotos de la carpeta "assets/img/hamburguesas" irán aquí)'
+    },
+    comidas: {
+        title: 'Momentos Deliciosos Juntos 🍕🍣',
+        folder: '../assets/img/comidas_varias',
+        placeholder: '📸 (Las fotos de la carpeta "assets/img/comidas_varias" irán aquí)'
+    },
+    juntos: {
+        title: 'Tú y Yo 💑',
+        folder: '../assets/img/juntos',
+        placeholder: '📸 (Las fotos de nosotros juntos irán aquí)'
+    },
+    viajes: {
+        title: 'Nuestros Viajes ✈️',
+        folder: '../assets/img/viajes',
+        placeholder: '📸 (Las fotos de nuestros viajes irán aquí)'
+    },
+    otros: {
+        title: 'Otros Momentos Mágicos ✨',
+        folder: '../assets/img/otros',
+        placeholder: '📸 (Otras fotos especiales irán aquí)'
+    },
+    locuras: {
+        title: 'Nuestras Locuras 🤪',
+        folder: '../assets/img/locuras',
+        placeholder: '📸 (Fotos divertidas irán aquí)'
+    }
+};
+
+function abrirAlbum(albumId) {
+    const modal = document.getElementById('album-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalGallery = document.getElementById('modal-gallery');
+    
+    if (modal && albumData[albumId]) {
+        modalTitle.textContent = albumData[albumId].title;
+        
+        // Simular fotos con polaroids
+        modalGallery.innerHTML = `
+            <div class="gallery-placeholder" style="grid-column: 1 / -1; background-color: white; border: 2px dashed var(--heart); border-radius: 10px; padding: 40px 20px; color: var(--text-dark); font-weight: 600; text-align: center;">
+                <p>${albumData[albumId].placeholder}</p>
+                <p style="font-size: 0.85rem; color: var(--secondary); margin-top: 10px;">Ruta esperada: ${albumData[albumId].folder}</p>
+            </div>
+        `;
+        
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+            modal.style.opacity = '1';
+        }, 10);
+    }
+}
+
+function cerrarAlbum() {
+    const modal = document.getElementById('album-modal');
+    if (modal) {
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 300);
+    }
+}
