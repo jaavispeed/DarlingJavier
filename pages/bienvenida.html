@@ -49,17 +49,17 @@
             </div>
         </div>
 
-        <!-- Contador amoroso centrado -->
-        <div class="romantic-counter-container">
-            <div class="fc-days romantic-days" id="days-counter"></div>
+        <!-- Contador como notita escrita a mano -->
+        <div class="handwritten-note">
+            <span id="days-counter"></span>
         </div>
         
-        <button class="start-btn" id="start-btn" onclick="showPasswordPrompt()">Comenzar nuestro viaje</button>
+        <button class="btn-primary btn-lg" id="start-btn" onclick="showPasswordPrompt()">Comenzar nuestro viaje</button>
         
         <div class="password-container hidden" id="password-container">
-            <p>Ingresa nuestra fecha especial para entrar:</p>
+            <p>Ingresa nuestra contraseña:</p>
             <input type="text" id="date-password" placeholder="DD-MM-YYYY" class="password-input">
-            <button class="unlock-btn" onclick="checkPassword()">Desbloquear 💜</button>
+            <button class="btn-primary btn-sm" onclick="checkPassword()">Desbloquear 💜</button>
             <p class="error-msg hidden" id="error-msg">Fecha incorrecta, mi amor. Intenta de nuevo.</p>
         </div>
     </div>
