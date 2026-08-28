@@ -353,21 +353,53 @@ h1, h2 {
     margin-bottom: 20px;
 }
 
-/* Responsividad */
+/* Responsividad — Tablet */
 @media (max-width: 768px) {
     #welcome-screen h1 { font-size: 3rem; }
     #main-screen h2 { font-size: 2.2rem; }
     .envelope { width: 250px; height: 160px; }
     .letter-content { padding: 25px; }
 
-    /* Ajuste de la baraja para móviles */
-    .polaroid-deck { width: 200px; height: 300px; }
-    .polaroid-deck .polaroid { width: 190px; }
-    .polaroid-deck .polaroid img { width: 170px; height: 170px; }
-    .bg-polaroid-msg { font-size: 0.8rem; }
-    .p-title { font-size: 1.1rem; }
-    .p-subtitle { font-size: 0.65rem; }
-    .p-date { font-size: 0.55rem; }
+    .polaroid-deck { width: 240px; height: 360px; }
+    .polaroid-deck .polaroid { width: 220px; }
+    .polaroid-deck .polaroid img { width: 200px; height: 200px; }
+    .bg-polaroid-msg { font-size: 1rem; }
+    .p-title { font-size: 1.4rem; }
+    .p-subtitle { font-size: 0.85rem; }
+    .p-date { font-size: 0.75rem; }
+
+    .bg-1 { transform: rotate(-25deg); }
+    .bg-2 { transform: rotate(-12deg); }
+    .bg-3 { transform: rotate(12deg); }
+    .bg-4 { transform: rotate(25deg); }
+}
+
+/* Responsividad — Móvil */
+@media (max-width: 480px) {
+    #welcome-screen h1 { font-size: 2.2rem; }
+    #main-screen h2 { font-size: 1.8rem; }
+    .envelope { width: 200px; height: 130px; }
+    .letter-content { padding: 20px; }
+
+    .polaroid-deck { width: 180px; height: 280px; }
+    .polaroid-deck .polaroid { width: 170px; padding: 8px 8px 35px 8px; }
+    .polaroid-deck .polaroid img { width: 154px; height: 154px; }
+    .bg-polaroid-msg { font-size: 0.85rem; }
+    .p-title { font-size: 1.15rem; }
+    .p-subtitle { font-size: 0.7rem; }
+    .p-date { font-size: 0.6rem; }
+
+    .bg-1 { transform: rotate(-22deg); }
+    .bg-2 { transform: rotate(-11deg); }
+    .bg-3 { transform: rotate(11deg); }
+    .bg-4 { transform: rotate(22deg); }
+
+    .start-btn { font-size: 1rem; padding: 12px 30px; }
+    .password-input { width: 160px; font-size: 0.9rem; }
+    .unlock-btn { margin-left: 0; margin-top: 10px; }
+    .password-container { padding: 20px 15px; }
+
+    .fc-days { font-size: 1.2rem; }
 }
 
 /* Estilo Polaroid para las fotos de los recuerdos */
@@ -446,7 +478,7 @@ h1, h2 {
 /* Mensajito escrito a mano en las polaroids de fondo */
 .bg-polaroid-msg {
     font-family: 'Dancing Script', cursive;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: var(--text-dark);
     text-align: center;
     margin-top: 8px;
@@ -456,12 +488,12 @@ h1, h2 {
 /* Textos dentro de la polaroid principal */
 .polaroid-text {
     text-align: center;
-    margin-top: 8px;
+    margin-top: 10px;
 }
 
 .p-title {
     font-family: 'Dancing Script', cursive;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     color: var(--text-dark);
     font-weight: 600;
     line-height: 1.2;
@@ -469,17 +501,17 @@ h1, h2 {
 
 .p-subtitle {
     font-family: 'Poppins', sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.95rem;
     color: var(--primary);
     font-weight: 600;
-    margin-top: 3px;
+    margin-top: 5px;
 }
 
 .p-date {
     font-family: 'Poppins', sans-serif;
-    font-size: 0.65rem;
+    font-size: 0.85rem;
     font-weight: 300;
     color: var(--secondary);
-    margin-top: 2px;
+    margin-top: 3px;
     letter-spacing: 1px;
 }
