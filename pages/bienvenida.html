@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversario Darling 💜</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body style="opacity: 0; animation: fadeInPage 1s forwards;">
+    <!-- Contador flotante -->
+    <div class="floating-counter">
+        <div class="fc-days" id="days-counter"></div>
+    </div>
+
+    <!-- Corazones de fondo interactivos -->
+    <div class="bg-hearts" id="bg-hearts"></div>
+
+    <!-- Pantalla 1: Bienvenida -->
+    <div class="screen" id="welcome-screen">
+        <h1>Para mi hermosa Darling 💜</h1>
+        <p>Felices 3 años juntos...</p>
+        <div class="aesthetic-date">✨ 30-08-2023 ✨</div>
+        
+        <button class="start-btn" id="start-btn" onclick="showPasswordPrompt()">Comenzar nuestro viaje</button>
+        
+        <div class="password-container hidden" id="password-container">
+            <p>Ingresa nuestra fecha especial para entrar:</p>
+            <input type="text" id="date-password" placeholder="DD-MM-YYYY" class="password-input">
+            <button class="unlock-btn" onclick="checkPassword()">Desbloquear 💜</button>
+            <p class="error-msg hidden" id="error-msg">Fecha incorrecta, mi amor. Intenta de nuevo.</p>
+        </div>
+    </div>
+
+    <script src="../assets/js/script.js"></script>
+    <style>
+        @keyframes fadeInPage {
+            to { opacity: 1; }
+        }
+    </style>
+</body>
+</html>

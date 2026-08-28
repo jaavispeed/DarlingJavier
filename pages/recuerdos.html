@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Recuerdos 💜</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body style="opacity: 0; animation: fadeInPage 1s forwards;">
+    <!-- Corazones de fondo interactivos -->
+    <div class="bg-hearts" id="bg-hearts"></div>
+
+    <div class="screen" id="main-screen">
+        <h2>3 Años de Magia ✨</h2>
+        
+        <div class="cards-container">
+            <!-- Tarjeta 1 -->
+            <div class="card" onclick="toggleCard(this)">
+                <div class="card-img-placeholder">📸</div>
+                <div class="card-text">
+                    <strong>Nuestro primer momento</strong><br>
+                    (Aquí puedes agregar una foto de ustedes y un pequeño texto sobre cómo empezó todo).
+                </div>
+            </div>
+            <!-- Tarjeta 2 -->
+            <div class="card" onclick="toggleCard(this)">
+                <div class="card-img-placeholder">🌟</div>
+                <div class="card-text">
+                    <strong>Una aventura inolvidable</strong><br>
+                    (Aquí puedes poner un recuerdo de un viaje, cita especial o anécdota divertida de estos 3 años).
+                </div>
+            </div>
+            <!-- Tarjeta 3 -->
+            <div class="card" onclick="toggleCard(this)">
+                <div class="card-img-placeholder">💜</div>
+                <div class="card-text">
+                    <strong>Lo que más amo de ti</strong><br>
+                    (Una pequeña dedicatoria resaltando por qué Darling es tan especial para ti).
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Comidas Varias -->
+        <div class="food-section">
+            <h3 class="section-subtitle">Momentos Deliciosos Juntos 🍕🍣</h3>
+            <div class="food-gallery" id="comidas-varias-gallery">
+                <div class="gallery-placeholder">
+                    <p>📸 (Las fotos de la carpeta "assets/img/comidas_varias" irán aquí)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Hamburguesas -->
+        <div class="food-section">
+            <h3 class="section-subtitle">Nuestra Favorita: ¡Hamburguesas! 🍔🍟</h3>
+            <div class="food-gallery" id="hamburguesas-gallery">
+                <div class="gallery-placeholder">
+                    <p>📸 (Las fotos de la carpeta "assets/img/hamburguesas" irán aquí)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón para ir a la carta -->
+        <div style="margin-top: 40px; text-align: center; margin-bottom: 50px;">
+            <button class="start-btn" onclick="window.location.href='carta.html'">Leer mi carta especial 💌</button>
+        </div>
+    </div>
+
+    <script src="../assets/js/script.js"></script>
+    <style>
+        @keyframes fadeInPage {
+            to { opacity: 1; }
+        }
+    </style>
+</body>
+</html>

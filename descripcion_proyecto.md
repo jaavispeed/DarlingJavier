@@ -5,14 +5,15 @@ Este proyecto consiste en una página web temática de amor diseñada para celeb
 
 ## Detalles Clave
 *   **Temática:** Amor, celebración de aniversario.
+*   **Fecha de Inicio:** 30 de agosto del 2023.
 *   **Protagonistas:** Darling y Javier. (Nota: Es crucial usar el sobrenombre "Darling" en lugar de Fernanda en los textos principales, ya que es su trato preferido y especial).
 *   **Color Principal:** Morado 💜. La paleta de colores de la página, los detalles visuales y elementos como los corazones deben estar enfocados en tonos morados.
 
 ## Objetivos y Funcionalidades
-*   **Interactividad:** La página principal debe permitir que Darling interactúe con los elementos, descubriendo progresivamente diferentes imágenes y textos sorpresa a medida que navega.
-*   **Sección de Carta:** Habrá un espacio interactivo dedicado a una carta de aniversario (por ahora se dejará un texto genérico de relleno).
-*   **Experiencia Emotiva:** Conmemorar los 3 años de relación manteniendo una estética romántica, cálida y altamente personalizada.
-*   **Diseño UX y Responsive:** La página web será 100% responsive (adaptable a teléfonos móviles, tablets y computadoras de escritorio) con un fuerte enfoque en una experiencia de usuario (UX) fluida, intuitiva y mágica.
+*   **Pantalla de Bienvenida y Contraseña (`pages/bienvenida.html`):** Una pantalla inicial que muestra un contador flotante de los días que llevan juntos y pide la fecha de aniversario (30-08-2023) como contraseña para acceder.
+*   **Galería de Recuerdos (`pages/recuerdos.html`):** Una sección modular donde Darling puede interactuar con tarjetas para descubrir recuerdos y ver galerías de fotos dedicadas a "comidas varias" y su comida favorita, las "hamburguesas".
+*   **Carta Interactiva (`pages/carta.html`):** Un espacio exclusivo, accesible tras ver los recuerdos, dedicado a una carta de aniversario.
+*   **Experiencia Emotiva y UX:** Animaciones suaves (como los corazones flotantes) y transiciones fluidas entre pantallas. El proyecto es 100% responsive, adaptándose a móviles, tablets y computadoras, manteniendo siempre una estética romántica y cálida.
 
 ---
 *Este documento servirá como base para la planificación y desarrollo de la página web.*
