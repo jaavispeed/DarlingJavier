@@ -1,6 +1,7 @@
 // Generar corazones flotantes de fondo
 function createHearts() {
   const container = document.getElementById("bg-hearts");
+  if (!container) return;
   for (let i = 0; i < 20; i++) {
     let heart = document.createElement("div");
     heart.innerHTML = "💜";
@@ -16,6 +17,15 @@ createHearts();
 
 // Mostrar campo de contraseña
 function showPasswordPrompt() {
+  // Enviar mensaje al index.html para iniciar la música global (evita errores CORS en archivos locales)
+  try {
+    if (window.parent) {
+      window.parent.postMessage("playMusic", "*");
+    }
+  } catch (e) {
+    console.log("No se pudo contactar al reproductor:", e);
+  }
+
   document.getElementById("start-btn").classList.add("hidden");
   document.getElementById("password-container").classList.remove("hidden");
 }
