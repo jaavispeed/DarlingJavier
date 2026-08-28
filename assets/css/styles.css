@@ -421,10 +421,17 @@ h1, h2 {
     .bg-2 { transform: rotate(-12deg); }
     .bg-3 { transform: rotate(12deg); }
     .bg-4 { transform: rotate(25deg); }
+    
+    .constellations-container {
+        transform: scale(0.8) rotate(-5deg);
+        left: 2%;
+        top: 10%;
+    }
 }
 
 /* Responsividad — Móvil */
 @media (max-width: 480px) {
+    #welcome-screen { padding: 10px; }
     #welcome-screen h1 { font-size: 2.2rem; }
     #main-screen h2 { font-size: 1.8rem; }
     .envelope { width: 200px; height: 130px; }
@@ -432,13 +439,21 @@ h1, h2 {
     
     .moon-decoration { font-size: 2.5rem; left: 2%; top: 20%; }
     .moon-decoration .star { font-size: 0.8rem; }
-    .constellations-container { transform: scale(0.7) rotate(-5deg); left: -5%; top: 15%; }
     
-    .polaroid-deck { width: 180px; height: 280px; }
-    .polaroid-deck .polaroid { width: 170px; padding: 8px 8px 35px 8px; }
-    .polaroid-deck .polaroid img { width: 154px; height: 154px; }
-    .bg-polaroid-msg { font-size: 0.85rem; }
-    .p-title { font-size: 1.15rem; }
+    /* Mover constelaciones arriba y centradas para que no tapen las fotos */
+    .constellations-container { 
+        transform: scale(0.6) rotate(-5deg); 
+        left: 50%; 
+        margin-left: -125px; /* Mitad de 250px */
+        top: 2%; 
+    }
+    
+    /* Bajar las fotos para dar espacio a las constelaciones */
+    .polaroid-deck { width: 170px; height: 260px; margin-top: 80px; margin-bottom: 20px; }
+    .polaroid-deck .polaroid { width: 160px; padding: 6px 6px 30px 6px; }
+    .polaroid-deck .polaroid img { width: 148px; height: 148px; }
+    .bg-polaroid-msg { font-size: 0.8rem; }
+    .p-title { font-size: 1.1rem; }
     .p-subtitle { font-size: 0.7rem; }
     .p-date { font-size: 0.6rem; }
 
@@ -447,12 +462,21 @@ h1, h2 {
     .bg-3 { transform: rotate(11deg); }
     .bg-4 { transform: rotate(22deg); }
 
-    .btn-lg { font-size: 1rem; padding: 12px 30px; }
-    .password-input { width: 160px; font-size: 0.9rem; }
-    .btn-sm { margin-left: 0; margin-top: 10px; }
-    .password-container { padding: 20px 15px; }
+    .btn-lg { font-size: 0.95rem; padding: 12px 25px; margin-top: 15px; }
+    
+    .password-container { padding: 20px 15px; width: 95%; display: flex; flex-direction: column; align-items: center; }
+    .password-input { width: 100%; max-width: 180px; font-size: 0.9rem; margin-bottom: 10px; }
+    .btn-sm { margin-left: 0; width: 100%; max-width: 180px; }
 
-    .handwritten-note { font-size: 1.1rem; }
+    .handwritten-note { font-size: 1rem; margin-top: 5px; }
+}
+
+/* Responsividad — Teléfonos extra pequeños (ej. iPhone SE) */
+@media (max-width: 360px) {
+    .constellations-container { transform: scale(0.5) rotate(-5deg); top: 0%; }
+    .polaroid-deck { margin-top: 70px; transform: scale(0.9); margin-bottom: 10px; }
+    .handwritten-note { font-size: 0.9rem; }
+    .btn-lg { font-size: 0.85rem; padding: 10px 20px; }
 }
 
 /* Estilo Polaroid para las fotos de los recuerdos */
