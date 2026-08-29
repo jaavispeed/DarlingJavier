@@ -88,9 +88,9 @@ body {
     100% { opacity: 1; filter: drop-shadow(0 0 10px rgba(255,255,255,1)); }
 }
 
-/* Fondo de Cielo Nocturno Negro Puro para la Bienvenida */
+/* Fondo de Cielo Nocturno para la Bienvenida */
 body.welcome-body {
-    background: radial-gradient(circle at center, #0a0a0a, #000000); /* Negro real profundo */
+    /* Hereda el fondo radial morado del body general */
 }
 
 body.welcome-body .handwritten-note {
