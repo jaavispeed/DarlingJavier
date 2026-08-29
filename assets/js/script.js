@@ -2,11 +2,14 @@
 function createStars() {
   const container = document.getElementById("bg-stars");
   if (!container) return;
+  // Limpiar estrellas previas si existen
+  container.innerHTML = "";
   for (let i = 0; i < 350; i++) {
     let star = document.createElement("div");
     star.className = "sky-star";
-    star.style.left = Math.random() * 100 + "vw";
-    star.style.top = Math.random() * 100 + "vh";
+    // Usar porcentaje dentro del contenedor fijo para cubrir todo uniformemente
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
     
     // Tamaños variables para simular cercanía/brillo
     let size = Math.random() * 2.5 + 0.5;
@@ -30,66 +33,97 @@ document.addEventListener("DOMContentLoaded", () => {
         <style>
             .music-player {
                 position: fixed;
-                bottom: 20px;
-                right: 20px;
-                background: rgba(245, 238, 248, 0.9);
-                backdrop-filter: blur(5px);
-                border: 2px solid #8e44ad;
-                border-radius: 30px;
-                padding: 8px 15px;
+                bottom: 16px;
+                right: 16px;
+                background: rgba(10, 5, 18, 0.75);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: 1px solid rgba(142, 68, 173, 0.35);
+                border-radius: 50px;
+                padding: 5px 5px 5px 14px;
                 display: flex;
                 align-items: center;
-                gap: 12px;
-                box-shadow: 0 4px 15px rgba(142, 68, 173, 0.2);
+                gap: 10px;
                 z-index: 1000;
-                transition: all 0.3s ease;
-                opacity: 0.8;
                 font-family: 'Poppins', sans-serif;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+                transition: box-shadow 0.3s;
             }
-            .music-player:hover { opacity: 1; transform: scale(1.02); }
-            .music-icon { font-size: 1.5rem; animation: floatIcon 3s ease-in-out infinite; }
-            @keyframes floatIcon { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
-            .music-info { display: flex; flex-direction: column; line-height: 1.2; }
-            .music-title { font-weight: 600; color: #8e44ad; font-size: 0.9rem; }
-            .music-artist { font-size: 0.75rem; color: #9b59b6; }
-            .play-btn { background: #8e44ad; color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 1rem; transition: transform 0.2s, background 0.2s; outline: none; }
-            .play-btn:hover { transform: scale(1.1); background: #732d91; }
-            .volume-container { display: flex; align-items: center; gap: 5px; margin-left: 8px; margin-right: 8px; }
-            .volume-icon { font-size: 0.9rem; color: #8e44ad; }
-            .volume-slider { width: 55px; accent-color: #8e44ad; cursor: pointer; }
-            
+            .music-player:hover {
+                box-shadow: 0 4px 18px rgba(142, 68, 173, 0.3);
+            }
+            .music-label {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                color: rgba(245, 238, 248, 0.9);
+                font-size: 0.75rem;
+                white-space: nowrap;
+                letter-spacing: 0.3px;
+            }
+            .music-label .song-icon { font-size: 0.85rem; }
+            .play-btn {
+                background: rgba(142, 68, 173, 0.9);
+                color: white;
+                border: none;
+                width: 34px;
+                height: 34px;
+                border-radius: 50%;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 0.9rem;
+                transition: transform 0.15s, background 0.2s;
+                outline: none;
+                flex-shrink: 0;
+            }
+            .play-btn:hover { background: #8e44ad; transform: scale(1.08); }
+            .play-btn:active { transform: scale(0.92); }
+
+            /* Móvil: el reproductor pasa a flujo normal (no flotante) */
             @media (max-width: 480px) {
-                .music-player { bottom: 15px; right: 15px; left: 15px; justify-content: space-between; border-radius: 20px; padding: 6px 12px; gap: 5px; }
-                .music-info { max-width: 100px; overflow: hidden; white-space: nowrap; }
-                .music-title { font-size: 0.8rem; text-overflow: ellipsis; overflow: hidden; }
-                .music-artist { font-size: 0.65rem; }
-                .volume-container { margin-left: 0; margin-right: 0; }
-                .volume-slider { width: 40px; }
-                .music-icon { font-size: 1.2rem; }
+                .music-player {
+                    position: static;
+                    margin: 20px auto 10px;
+                    width: fit-content;
+                    border-radius: 50px;
+                    padding: 5px 5px 5px 14px;
+                    gap: 8px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+                }
+                .music-label { font-size: 0.72rem; }
+                .play-btn { width: 32px; height: 32px; font-size: 0.85rem; }
+            }
+
+            @media (max-width: 360px) {
+                .music-label { font-size: 0.65rem; gap: 4px; }
+                .music-label .song-icon { font-size: 0.75rem; }
+                .play-btn { width: 30px; height: 30px; }
             }
         </style>
         <audio id="bg-music" loop autoplay>
             <source src="../assets/music/Eres_Mi_Tesoro.mp3" type="audio/mpeg">
         </audio>
         <div class="music-player">
-            <div class="music-icon">🎵</div>
-            <div class="music-info">
-                <span class="music-title">Eres Mi Tesoro</span>
-                <span class="music-artist">Jesse & Joy</span>
+            <div class="music-label">
+                <span class="song-icon">🎵</span>
+                <span>Eres Mi Tesoro</span>
             </div>
-            <div class="volume-container">
-                <span class="volume-icon">🔊</span>
-                <input type="range" id="volume-slider" min="0" max="100" value="20" class="volume-slider" title="Ajustar volumen">
-            </div>
-            <button class="play-btn" id="play-pause-btn">▶️</button>
+            <button class="play-btn" id="play-pause-btn">▶</button>
         </div>
     `;
-    
-    document.body.insertAdjacentHTML('beforeend', playerHTML);
+
+    // Insertar en el slot inline si existe (bienvenida), sino al final del body
+    const inlineSlot = document.getElementById("inline-player");
+    if (inlineSlot) {
+        inlineSlot.innerHTML = playerHTML;
+    } else {
+        document.body.insertAdjacentHTML('beforeend', playerHTML);
+    }
 
     const bgMusic = document.getElementById("bg-music");
     const playBtn = document.getElementById("play-pause-btn");
-    const volumeSlider = document.getElementById("volume-slider");
 
     // 2. Restaurar estado de sessionStorage
     const savedTime = sessionStorage.getItem("musicTime") || 0;
@@ -97,7 +131,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const savedVolume = sessionStorage.getItem("musicVolume") || 0.2;
 
     bgMusic.volume = savedVolume;
-    volumeSlider.value = savedVolume * 100;
     bgMusic.currentTime = parseFloat(savedTime);
 
     if (isPlaying) {
@@ -112,30 +145,25 @@ document.addEventListener("DOMContentLoaded", () => {
         sessionStorage.setItem("musicVolume", bgMusic.volume);
     });
     
-    // Guardar estado de forma continua por si cierra el navegador repentinamente
+    // Guardar estado de forma continua
     setInterval(() => {
         sessionStorage.setItem("musicTime", bgMusic.currentTime);
         sessionStorage.setItem("musicPlaying", !bgMusic.paused);
     }, 1000);
 
-    // 4. Lógica de los botones
+    // 4. Lógica del botón
     playBtn.addEventListener("click", () => {
         if (bgMusic.paused) {
             bgMusic.play();
             playBtn.textContent = "⏸";
         } else {
             bgMusic.pause();
-            playBtn.textContent = "▶️";
+            playBtn.textContent = "▶";
         }
     });
     
     bgMusic.addEventListener("play", () => playBtn.textContent = "⏸");
-    bgMusic.addEventListener("pause", () => playBtn.textContent = "▶️");
-
-    volumeSlider.addEventListener("input", function() {
-        bgMusic.volume = this.value / 100;
-        sessionStorage.setItem("musicVolume", bgMusic.volume);
-    });
+    bgMusic.addEventListener("pause", () => playBtn.textContent = "▶");
 });
 
 // Mostrar campo de contraseña
