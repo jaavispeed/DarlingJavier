@@ -9,7 +9,7 @@
     <style>
       .timeline-container {
         width: 100%;
-        max-width: 1200px;
+        max-width: 1500px; /* Ampliado para que las polaroid sean más grandes */
         margin: 0 auto;
         padding: 0 20px;
         flex: 1; /* Permite que el contenedor empuje el contenido y se centre en el espacio disponible */
@@ -95,8 +95,10 @@
       
       .timeline-content img {
         width: 100%;
-        height: 250px; /* Agrandadas para que no se corten */
-        object-fit: cover;
+        height: auto; /* Permite que la foto conserve su altura original */
+        max-height: 350px;
+        object-fit: contain; /* Garantiza que no se corte ABSOLUTAMENTE NADA de la foto */
+        background-color: #fafafa;
         border-radius: 2px;
         display: block;
       }
@@ -158,7 +160,8 @@
           display: none !important; 
         }
         .timeline-content img {
-          height: 300px; /* Aún más grandes en móvil */
+          height: auto; /* Se ajusta a la foto real */
+          max-height: 450px;
         }
         .timeline-date {
           font-size: 2.2rem;
@@ -176,14 +179,14 @@
     <div class="screen" style="max-width: 100%; padding: 40px 20px; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
       
       <!-- Contenedor del Título (Arriba del todo) -->
-      <div style="width: 100%; max-width: 1200px;">
+      <div style="width: 100%; max-width: 1500px;">
         <div style="width: 100%; display: flex; justify-content: flex-start; margin-bottom: 15px;">
           <button onclick="window.location.href='recuerdos.html'" style="background: transparent; border: 1px solid rgba(142, 68, 173, 0.4); border-radius: 20px; color: var(--primary); font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 6px; padding: 6px 16px; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(142, 68, 173, 0.1)'; this.style.transform='translateX(-4px)';" onmouseout="this.style.background='transparent'; this.style.transform='translateX(0)';">
             <span>←</span> Volver
           </button>
         </div>
         <h2 style="font-size: 3.5rem; text-align: center; color: var(--primary); font-family: 'Dancing Script', cursive; margin-top: 0;">Nuestra Historia en el Tiempo 💑</h2>
-        <p style="text-align: center; color: var(--text-dark); margin-bottom: 20px">Nuestros momentos mágicos.</p>
+        <p class="page-subtitle">Nuestros momentos mágicos.</p>
       </div>
 
       <!-- Contenedor de la Línea de Tiempo (Ocupa el resto y se centra) -->

@@ -25,6 +25,34 @@ body {
   min-height: 100vh;
 }
 
+/* ============================================
+   SCROLLBAR PERSONALIZADO (Chrome, Edge, Safari, Firefox)
+   ============================================ */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) #05020a;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05020a;
+  border-left: 1px solid rgba(142, 68, 173, 0.15);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+  border: 3px solid #05020a; /* Crea un efecto de margen interior */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--heart); /* Color morado más claro/rosado al pasar el cursor */
+}
+
 /* Nota escrita a mano (contador de días) */
 .handwritten-note {
   font-family: "Dancing Script", cursive;
@@ -174,6 +202,29 @@ h2 {
 #welcome-screen h1 {
   font-size: 4rem;
   margin-bottom: 10px;
+}
+
+/* ============================================
+   SUBTÍTULOS ESTÁNDAR (Páginas principales)
+   ============================================ */
+.page-subtitle {
+  text-align: center;
+  color: #e8d5f8; /* Morado clarito, excelente contraste sobre fondo oscuro */
+  font-size: 1.15rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  margin-top: 5px;
+  margin-bottom: 35px;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  max-width: 800px;
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 768px) {
+  .page-subtitle {
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
 }
 
 /* === BOTONES (Estándar del proyecto) === */
