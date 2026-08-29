@@ -1,666 +1,794 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap");
 
 :root {
-    --primary: #8e44ad; /* Morado oscuro */
-    --secondary: #9b59b6; /* Morado medio */
-    --light: #f5eef8; /* Fondo claro morado */
-    --text-dark: #4a235a;
-    --heart: #c39bd3;
+  --primary: #8e44ad; /* Morado oscuro */
+  --secondary: #9b59b6; /* Morado medio */
+  --light: #f5eef8; /* Fondo claro morado */
+  --text-dark: #4a235a;
+  --heart: #c39bd3;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #05020a;
-    background-image: radial-gradient(circle at top center, #1a0b2e, #05020a);
-    background-attachment: fixed;
-    background-size: cover;
-    color: #f5eef8;
-    overflow-x: hidden;
-    min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background-color: #05020a;
+  background-image: radial-gradient(circle at top center, #1a0b2e, #05020a);
+  background-attachment: fixed;
+  background-size: cover;
+  color: #f5eef8;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
 /* Nota escrita a mano (contador de días) */
 .handwritten-note {
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.4rem;
-    color: var(--primary);
-    font-weight: 600;
-    text-align: center;
-    margin: 15px 0 5px;
-    padding: 10px 25px;
-    position: relative;
-    z-index: 10;
+  font-family: "Dancing Script", cursive;
+  font-size: 1.4rem;
+  color: var(--primary);
+  font-weight: 600;
+  text-align: center;
+  margin: 15px 0 5px;
+  padding: 10px 25px;
+  position: relative;
+  z-index: 10;
 }
 
 /* Estrellas flotantes de fondo */
 .bg-stars {
-    position: fixed;
-    top: -20px;
-    left: -20px;
-    right: -20px;
-    bottom: -20px;
-    pointer-events: none;
-    z-index: 0;
+  position: fixed;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Estrellas del cielo de fondo */
 .sky-star {
-    position: absolute;
-    background-color: #ffffff;
-    border-radius: 50%;
-    box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
-    opacity: 0.8;
-    animation: twinkleBg 3s infinite alternate;
+  position: absolute;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+  opacity: 0.8;
+  animation: twinkleBg 3s infinite alternate;
 }
 
 @keyframes twinkleBg {
-    0% { opacity: 0.2; transform: scale(0.8); }
-    100% { opacity: 1; transform: scale(1.2); }
+  0% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
 }
 
 /* Contenedor de Constelaciones (SVG) */
 .constellations-container {
-    position: absolute;
-    top: 20%;
-    left: 5%;
-    width: 250px;
-    height: 200px;
-    z-index: 0;
-    animation: floatMoon 8s ease-in-out infinite;
-    transform: rotate(-5deg);
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  width: 250px;
+  height: 200px;
+  z-index: 0;
+  animation: floatMoon 8s ease-in-out infinite;
+  transform: rotate(-5deg);
 }
 
 .constellation-svg {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .const-star-text {
-    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
-    animation: twinkleSvgBright 3s infinite alternate;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
+  animation: twinkleSvgBright 3s infinite alternate;
 }
 
 @keyframes twinkleSvgBright {
-    0% { opacity: 0.6; filter: drop-shadow(0 0 2px rgba(255,255,255,0.4)); }
-    100% { opacity: 1; filter: drop-shadow(0 0 10px rgba(255,255,255,1)); }
+  0% {
+    opacity: 0.6;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.4));
+  }
+  100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
+  }
 }
 
 /* Fondo de Cielo Nocturno para la Bienvenida */
 body.welcome-body {
-    /* Hereda el fondo radial morado del body general */
+  /* Hereda el fondo radial morado del body general */
 }
 
 body.welcome-body .handwritten-note {
-    color: #f5eef8; 
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  color: #f5eef8;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 body.welcome-body .bg-star-floating {
-    color: #f5eef8; 
-    opacity: 0.15;
+  color: #f5eef8;
+  opacity: 0.15;
 }
 
 @keyframes floatMoon {
-    0%, 100% { transform: translateY(0) rotate(-5deg); }
-    50% { transform: translateY(-15px) rotate(5deg); }
+  0%,
+  100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
 }
 
 @keyframes twinkle {
-    0% { opacity: 0.3; transform: scale(0.8); }
-    100% { opacity: 1; transform: scale(1.1); }
+  0% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
 }
 
 /* Contenedores principales */
 .screen {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    position: relative;
-    z-index: 1;
-    transition: opacity 1s ease, transform 1s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
 }
 
 /* Bienvenida: permitir scroll si el contenido no cabe */
 #welcome-screen {
-    text-align: center;
-    overflow: visible;
+  text-align: center;
+  overflow: visible;
 }
 
 .hidden {
-    display: none !important;
+  display: none !important;
 }
 
-h1, h2 {
-    font-family: 'Dancing Script', cursive;
-    color: #e8d5f8;
-    text-shadow: 0 0 10px rgba(142, 68, 173, 0.8);
+h1,
+h2 {
+  font-family: "Dancing Script", cursive;
+  color: #e8d5f8;
+  text-shadow: 0 0 10px rgba(142, 68, 173, 0.8);
 }
 
 #welcome-screen h1 {
-    font-size: 4rem;
-    margin-bottom: 10px;
+  font-size: 4rem;
+  margin-bottom: 10px;
 }
 
 /* === BOTONES (Estándar del proyecto) === */
 .btn-primary {
-    background-color: var(--primary);
-    color: white;
-    border: none;
-    padding: 12px 35px;
-    font-size: 1.05rem;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
-    transition: all 0.3s ease;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 35px;
+  font-size: 1.05rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .btn-primary:hover {
-    background-color: var(--secondary);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(142, 68, 173, 0.4);
+  background-color: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(142, 68, 173, 0.4);
 }
 
 /* Variante grande (para acciones principales como "Comenzar nuestro viaje") */
 .btn-lg {
-    padding: 14px 45px;
-    font-size: 1.1rem;
-    margin-top: 30px;
+  padding: 14px 45px;
+  font-size: 1.1rem;
+  margin-top: 30px;
 }
 
 /* Variante pequeña (para acciones secundarias como "Desbloquear") */
 .btn-sm {
-    padding: 10px 25px;
-    font-size: 0.95rem;
-    margin-left: 10px;
+  padding: 10px 25px;
+  font-size: 0.95rem;
+  margin-left: 10px;
 }
 
 /* Contenedor de contraseña */
 .password-container {
-    margin-top: 30px;
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    animation: fadeIn 0.5s ease;
+  margin-top: 30px;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.5s ease;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
 }
 
 .password-container p {
-    margin-bottom: 15px;
-    font-weight: 600;
-    color: var(--primary);
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: var(--primary);
 }
 
 .password-input {
-    padding: 10px 15px;
-    border: 2px solid var(--heart);
-    border-radius: 8px; /* Combinando con el estilo del botón */
-    font-size: 1rem;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    color: var(--text-dark);
-    outline: none;
-    width: 200px;
-    transition: all 0.3s ease;
+  padding: 10px 15px;
+  border: 2px solid var(--heart);
+  border-radius: 8px; /* Combinando con el estilo del botón */
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  color: var(--text-dark);
+  outline: none;
+  width: 200px;
+  transition: all 0.3s ease;
 }
 
 .password-input:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 10px rgba(142, 68, 173, 0.2);
+  border-color: var(--primary);
+  box-shadow: 0 0 10px rgba(142, 68, 173, 0.2);
 }
 
 .error-msg {
-    color: #e74c3c !important;
-    font-size: 0.9rem !important;
-    margin-top: 15px;
-    font-weight: 400 !important;
+  color: #e74c3c !important;
+  font-size: 0.9rem !important;
+  margin-top: 15px;
+  font-weight: 400 !important;
 }
 
 /* Pantalla de Interacción */
 #main-screen {
-    max-width: 1000px;
-    margin: 0 auto;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 #main-screen h2 {
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 40px;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    width: 100%;
-    margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 50px;
 }
 
 .card {
-    background: white;
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    cursor: pointer;
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-    border: 2px solid transparent;
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    border-color: var(--heart);
+  transform: translateY(-10px);
+  border-color: var(--heart);
 }
 
 .card-img-placeholder {
-    width: 100%;
-    height: 180px;
-    background-color: var(--heart);
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 3rem;
-    margin-bottom: 15px;
-    transition: opacity 0.5s;
+  width: 100%;
+  height: 180px;
+  background-color: var(--heart);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 15px;
+  transition: opacity 0.5s;
 }
 
 .card-text {
-    font-size: 1rem;
-    color: var(--text-dark);
-    opacity: 0;
-    max-height: 0;
-    transition: all 0.5s ease;
+  font-size: 1rem;
+  color: var(--text-dark);
+  opacity: 0;
+  max-height: 0;
+  transition: all 0.5s ease;
 }
 
 .card.active .card-img-placeholder {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 .card.active .card-text {
-    opacity: 1;
-    max-height: 200px;
-    margin-top: 15px;
+  opacity: 1;
+  max-height: 200px;
+  margin-top: 15px;
 }
 
 /* Secciones de Comida */
 .food-section {
-    width: 100%;
-    margin-bottom: 50px;
-    text-align: center;
+  width: 100%;
+  margin-bottom: 50px;
+  text-align: center;
 }
 
 .section-subtitle {
-    font-family: 'Dancing Script', cursive;
-    color: var(--primary);
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+  font-family: "Dancing Script", cursive;
+  color: var(--primary);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
 .food-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    width: 100%;
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  width: 100%;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
 .gallery-placeholder {
-    grid-column: 1 / -1;
-    background-color: var(--light);
-    border: 2px dashed var(--heart);
-    border-radius: 10px;
-    padding: 40px 20px;
-    color: var(--text-dark);
-    font-weight: 600;
+  grid-column: 1 / -1;
+  background-color: var(--light);
+  border: 2px dashed var(--heart);
+  border-radius: 10px;
+  padding: 40px 20px;
+  color: var(--text-dark);
+  font-weight: 600;
 }
 
 /* Sección de Carta */
 .letter-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 40px;
 }
 
 .envelope {
-    background-color: var(--primary);
-    width: 300px;
-    height: 200px;
-    position: relative;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.3s;
+  background-color: var(--primary);
+  width: 300px;
+  height: 200px;
+  position: relative;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s;
 }
 
 .envelope:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .envelope::before {
-    content: "💌 Toca para abrir tu carta";
-    color: white;
-    font-weight: 600;
+  content: "💌 Toca para abrir tu carta";
+  color: white;
+  font-weight: 600;
 }
 
 .letter-content {
-    background: white;
-    width: 90%;
-    max-width: 600px;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-    text-align: center;
-    line-height: 1.8;
-    display: none;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s ease;
+  background: white;
+  width: 90%;
+  max-width: 600px;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  line-height: 1.8;
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
 }
 
 .letter-content.show {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .letter-content h3 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2.5rem;
-    color: var(--primary);
-    margin-bottom: 20px;
+  font-family: "Dancing Script", cursive;
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 20px;
 }
 
 /* ============================================
    RESPONSIVIDAD GLOBAL
    ============================================ */
 
-
-
 /* --- Recuerdos: Álbumes dentro del grid (sobreescribir inline styles) --- */
 .albums-container {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
-    gap: 30px !important;
-    width: 100% !important;
-    margin-bottom: 50px;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+  gap: 30px !important;
+  width: 100% !important;
+  margin-bottom: 50px;
 }
 
 /* Las polaroid de los álbumes deben ser clickeables y llenar su celda */
 .albums-container .polaroid {
-    width: 100%;
-    margin: 0;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 
 /* --- Modal de álbumes responsive --- */
 #album-modal .modal-content {
-    width: 92% !important;
-    max-width: 800px !important;
-    max-height: 85vh !important;
-    padding: 25px !important;
-    -webkit-overflow-scrolling: touch;
+  width: 92% !important;
+  max-width: 800px !important;
+  max-height: 85vh !important;
+  padding: 25px !important;
+  -webkit-overflow-scrolling: touch;
 }
 
 #album-modal .modal-content h3 {
-    font-size: 2rem !important;
+  font-size: 2rem !important;
 }
 
 /* --- Carta responsive base --- */
 .letter-content {
-    width: 90%;
-    max-width: 600px;
+  width: 90%;
+  max-width: 600px;
 }
 
 .letter-content h3 {
-    font-size: 2.2rem;
-    word-break: break-word;
+  font-size: 2.2rem;
+  word-break: break-word;
 }
 
 .letter-content p {
-    font-size: 1rem;
-    color: var(--text-dark);
-    line-height: 1.8;
+  font-size: 1rem;
+  color: var(--text-dark);
+  line-height: 1.8;
 }
 
 /* ============================================
    Responsividad — Tablet (max-width: 768px)
    ============================================ */
 @media (max-width: 768px) {
-    /* --- Bienvenida --- */
-    #welcome-screen h1 { font-size: 3rem; }
-    #welcome-screen { overflow: visible; }
+  /* --- Bienvenida --- */
+  #welcome-screen h1 {
+    font-size: 3rem;
+  }
+  #welcome-screen {
+    overflow: visible;
+  }
 
-    .polaroid-deck { width: 240px; height: 360px; }
-    .polaroid-deck .polaroid { width: 220px; }
-    .polaroid-deck .polaroid img { width: 200px; height: 200px; }
-    .bg-polaroid-msg { font-size: 1rem; }
-    .p-title { font-size: 1.4rem; }
-    .p-subtitle { font-size: 0.85rem; }
-    .p-date { font-size: 0.75rem; }
+  .polaroid-deck {
+    width: 240px;
+    height: 360px;
+  }
+  .polaroid-deck .polaroid {
+    width: 220px;
+  }
+  .polaroid-deck .polaroid img {
+    width: 200px;
+    height: 200px;
+  }
+  .bg-polaroid-msg {
+    font-size: 1rem;
+  }
+  .p-title {
+    font-size: 1.4rem;
+  }
+  .p-subtitle {
+    font-size: 0.85rem;
+  }
+  .p-date {
+    font-size: 0.75rem;
+  }
 
-    .bg-1 { transform: rotate(-25deg); }
-    .bg-2 { transform: rotate(-12deg); }
-    .bg-3 { transform: rotate(12deg); }
-    .bg-4 { transform: rotate(25deg); }
+  .bg-1 {
+    transform: rotate(-25deg);
+  }
+  .bg-2 {
+    transform: rotate(-12deg);
+  }
+  .bg-3 {
+    transform: rotate(12deg);
+  }
+  .bg-4 {
+    transform: rotate(25deg);
+  }
 
-    .constellations-container {
-        transform: scale(0.8) rotate(-5deg);
-        left: 2%;
-        top: 10%;
-    }
+  .constellations-container {
+    transform: scale(0.8) rotate(-5deg);
+    left: 2%;
+    top: 10%;
+  }
 
-    /* --- Recuerdos --- */
-    #main-screen h2 { font-size: 2.2rem; }
-    #main-screen { padding: 20px 15px; }
+  /* --- Recuerdos --- */
+  #main-screen h2 {
+    font-size: 2.2rem;
+  }
+  #main-screen {
+    padding: 20px 15px;
+  }
 
-    .albums-container {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
-        gap: 20px !important;
-    }
+  .albums-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+    gap: 20px !important;
+  }
 
-    /* --- Carta --- */
-    .envelope { width: 250px; height: 160px; }
-    .letter-content { padding: 25px; }
-    .letter-content h3 { font-size: 2rem; }
+  /* --- Carta --- */
+  .envelope {
+    width: 250px;
+    height: 160px;
+  }
+  .letter-content {
+    padding: 25px;
+  }
+  .letter-content h3 {
+    font-size: 2rem;
+  }
 }
 
 /* ============================================
    Responsividad — Móvil (max-width: 480px)
    ============================================ */
 @media (max-width: 480px) {
+  /* --- Global móvil --- */
 
-    /* --- Global móvil --- */
+  .screen {
+    padding: 15px 12px;
+  }
 
-    .screen {
-        padding: 15px 12px;
-    }
+  /* --- Bienvenida --- */
+  #welcome-screen {
+    padding: 15px 10px;
+    min-height: 100vh;
+    justify-content: flex-start;
+    padding-top: 10px;
+  }
 
-    /* --- Bienvenida --- */
-    #welcome-screen {
-        padding: 15px 10px;
-        min-height: 100vh;
-        justify-content: flex-start;
-        padding-top: 10px;
-    }
+  #welcome-screen h1 {
+    font-size: 2.2rem;
+  }
 
-    #welcome-screen h1 { font-size: 2.2rem; }
+  /* En móvil: constelaciones pasan a flujo normal, centradas arriba */
+  .constellations-container {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0 auto 5px;
+    transform: scale(0.7) rotate(-5deg);
+    width: 200px;
+    height: 140px;
+  }
 
-    /* En móvil: constelaciones pasan a flujo normal, centradas arriba */
-    .constellations-container {
-        position: relative;
-        top: auto;
-        left: auto;
-        margin: 0 auto 5px;
-        transform: scale(0.7) rotate(-5deg);
-        width: 200px;
-        height: 140px;
-    }
+  /* Polaroid deck: centrado, con espacio controlado */
+  .polaroid-deck {
+    width: 190px;
+    height: 280px;
+    margin: 10px auto 15px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .polaroid-deck .polaroid {
+    width: 175px;
+    padding: 6px 6px 30px 6px;
+  }
+  .polaroid-deck .polaroid img {
+    width: 163px;
+    height: 163px;
+  }
+  .bg-polaroid-msg {
+    font-size: 0.8rem;
+  }
+  .p-title {
+    font-size: 1.1rem;
+  }
+  .p-subtitle {
+    font-size: 0.7rem;
+  }
+  .p-date {
+    font-size: 0.6rem;
+  }
 
-    /* Polaroid deck: centrado, con espacio controlado */
-    .polaroid-deck {
-        width: 190px;
-        height: 280px;
-        margin: 10px auto 15px;
-        position: relative;
-        display: flex;
-        justify-content: center;
-    }
-    .polaroid-deck .polaroid {
-        width: 175px;
-        padding: 6px 6px 30px 6px;
-    }
-    .polaroid-deck .polaroid img {
-        width: 163px;
-        height: 163px;
-    }
-    .bg-polaroid-msg { font-size: 0.8rem; }
-    .p-title { font-size: 1.1rem; }
-    .p-subtitle { font-size: 0.7rem; }
-    .p-date { font-size: 0.6rem; }
+  /* Abanico más cerrado para no salir del viewport */
+  .bg-1 {
+    transform: rotate(-18deg);
+  }
+  .bg-2 {
+    transform: rotate(-9deg);
+  }
+  .bg-3 {
+    transform: rotate(9deg);
+  }
+  .bg-4 {
+    transform: rotate(18deg);
+  }
 
-    /* Abanico más cerrado para no salir del viewport */
-    .bg-1 { transform: rotate(-18deg); }
-    .bg-2 { transform: rotate(-9deg); }
-    .bg-3 { transform: rotate(9deg); }
-    .bg-4 { transform: rotate(18deg); }
+  /* Hover en móvil: abrir un poco menos */
+  .polaroid-deck:hover .bg-1 {
+    transform: rotate(-22deg);
+  }
+  .polaroid-deck:hover .bg-2 {
+    transform: rotate(-11deg);
+  }
+  .polaroid-deck:hover .bg-3 {
+    transform: rotate(11deg);
+  }
+  .polaroid-deck:hover .bg-4 {
+    transform: rotate(22deg);
+  }
 
-    /* Hover en móvil: abrir un poco menos */
-    .polaroid-deck:hover .bg-1 { transform: rotate(-22deg); }
-    .polaroid-deck:hover .bg-2 { transform: rotate(-11deg); }
-    .polaroid-deck:hover .bg-3 { transform: rotate(11deg); }
-    .polaroid-deck:hover .bg-4 { transform: rotate(22deg); }
+  .btn-primary {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+  .btn-lg {
+    font-size: 0.95rem;
+    padding: 12px 25px;
+    margin-top: 10px;
+  }
 
-    .btn-primary { padding: 10px 20px; font-size: 0.95rem; }
-    .btn-lg { font-size: 0.95rem; padding: 12px 25px; margin-top: 10px; }
+  .password-container {
+    padding: 20px 15px;
+    width: 95%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+  }
+  .password-input {
+    width: 100%;
+    max-width: 200px;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+  }
+  .btn-sm {
+    margin-left: 0;
+    width: 100%;
+    max-width: 200px;
+  }
 
-    .password-container {
-        padding: 20px 15px;
-        width: 95%;
-        max-width: 300px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 15px;
-    }
-    .password-input { width: 100%; max-width: 200px; font-size: 0.95rem; margin-bottom: 10px; }
-    .btn-sm { margin-left: 0; width: 100%; max-width: 200px; }
+  .handwritten-note {
+    font-size: 1rem;
+    margin-top: 5px;
+    padding: 5px 10px;
+  }
 
-    .handwritten-note { font-size: 1rem; margin-top: 5px; padding: 5px 10px; }
+  /* --- Recuerdos --- */
+  #main-screen h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  #main-screen {
+    padding: 15px 10px;
+  }
 
-    /* --- Recuerdos --- */
-    #main-screen h2 { font-size: 1.8rem; margin-bottom: 20px; }
-    #main-screen { padding: 15px 10px; }
+  .albums-container {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
 
-    .albums-container {
-        grid-template-columns: 1fr !important;
-        gap: 18px !important;
-    }
+  /* Polaroids dentro de álbumes: ocupar todo el ancho en móvil */
+  .albums-container .polaroid {
+    margin: 0;
+  }
 
-    /* Polaroids dentro de álbumes: ocupar todo el ancho en móvil */
-    .albums-container .polaroid {
-        margin: 0;
-    }
+  /* Las previews de los álbumes en una columna apilada */
+  .albums-container .polaroid div[style*="height: 200px"] {
+    height: 150px !important;
+  }
 
-    /* Las previews de los álbumes en una columna apilada */
-    .albums-container .polaroid div[style*="height: 200px"] {
-        height: 150px !important;
-    }
+  /* Modal de álbumes */
+  #album-modal .modal-content {
+    width: 95% !important;
+    padding: 18px 14px !important;
+    max-height: 90vh !important;
+    border-radius: 12px !important;
+  }
 
-    /* Modal de álbumes */
-    #album-modal .modal-content {
-        width: 95% !important;
-        padding: 18px 14px !important;
-        max-height: 90vh !important;
-        border-radius: 12px !important;
-    }
+  #album-modal .modal-content h3 {
+    font-size: 1.6rem !important;
+    margin-bottom: 15px !important;
+  }
 
-    #album-modal .modal-content h3 {
-        font-size: 1.6rem !important;
-        margin-bottom: 15px !important;
-    }
+  /* Galería dentro del modal */
+  #modal-gallery {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
 
-    /* Galería dentro del modal */
-    #modal-gallery {
-        grid-template-columns: 1fr 1fr !important;
-        gap: 10px !important;
-    }
+  /* Botón cerrar modal más accesible */
+  #album-modal .modal-content button[onclick="cerrarAlbum()"] {
+    top: 10px !important;
+    right: 12px !important;
+    font-size: 1.8rem !important;
+    padding: 5px !important;
+    min-width: 40px;
+    min-height: 40px;
+  }
 
-    /* Botón cerrar modal más accesible */
-    #album-modal .modal-content button[onclick="cerrarAlbum()"] {
-        top: 10px !important;
-        right: 12px !important;
-        font-size: 1.8rem !important;
-        padding: 5px !important;
-        min-width: 40px;
-        min-height: 40px;
-    }
+  /* --- Carta --- */
+  .envelope {
+    width: 220px;
+    height: 140px;
+  }
 
-    /* --- Carta --- */
-    .envelope {
-        width: 220px;
-        height: 140px;
-    }
+  .envelope::before {
+    font-size: 0.9rem;
+  }
 
-    .envelope::before {
-        font-size: 0.9rem;
-    }
+  .letter-content {
+    width: 95%;
+    padding: 22px 18px;
+  }
 
-    .letter-content {
-        width: 95%;
-        padding: 22px 18px;
-    }
+  .letter-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
 
-    .letter-content h3 {
-        font-size: 1.8rem;
-        margin-bottom: 15px;
-    }
+  .letter-content p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
 
-    .letter-content p {
-        font-size: 0.95rem;
-        line-height: 1.7;
-    }
-
-    /* Botón volver en la carta */
-    .letter-section {
-        width: 100%;
-    }
+  /* Botón volver en la carta */
+  .letter-section {
+    width: 100%;
+  }
 }
 
 /* ============================================
@@ -668,166 +796,226 @@ h1, h2 {
    (ej. iPhone SE, 360px)
    ============================================ */
 @media (max-width: 360px) {
-    /* Bienvenida extra-small */
-    .constellations-container {
-        transform: scale(0.55) rotate(-5deg);
-        width: 180px;
-        height: 120px;
-        margin-bottom: 0;
-    }
+  /* Bienvenida extra-small */
+  .constellations-container {
+    transform: scale(0.55) rotate(-5deg);
+    width: 180px;
+    height: 120px;
+    margin-bottom: 0;
+  }
 
-    .polaroid-deck {
-        width: 160px;
-        height: 240px;
-        margin: 5px auto 10px;
-    }
-    .polaroid-deck .polaroid { width: 150px; }
-    .polaroid-deck .polaroid img { width: 138px; height: 138px; }
+  .polaroid-deck {
+    width: 160px;
+    height: 240px;
+    margin: 5px auto 10px;
+  }
+  .polaroid-deck .polaroid {
+    width: 150px;
+  }
+  .polaroid-deck .polaroid img {
+    width: 138px;
+    height: 138px;
+  }
 
-    .bg-1 { transform: rotate(-15deg); }
-    .bg-2 { transform: rotate(-7deg); }
-    .bg-3 { transform: rotate(7deg); }
-    .bg-4 { transform: rotate(15deg); }
+  .bg-1 {
+    transform: rotate(-15deg);
+  }
+  .bg-2 {
+    transform: rotate(-7deg);
+  }
+  .bg-3 {
+    transform: rotate(7deg);
+  }
+  .bg-4 {
+    transform: rotate(15deg);
+  }
 
-    .handwritten-note { font-size: 0.85rem; }
-    .btn-lg { font-size: 0.85rem; padding: 10px 20px; margin-top: 8px; }
+  .handwritten-note {
+    font-size: 0.85rem;
+  }
+  .btn-lg {
+    font-size: 0.85rem;
+    padding: 10px 20px;
+    margin-top: 8px;
+  }
 
-    .p-title { font-size: 1rem; }
-    .p-subtitle { font-size: 0.65rem; }
-    .p-date { font-size: 0.55rem; }
+  .p-title {
+    font-size: 1rem;
+  }
+  .p-subtitle {
+    font-size: 0.65rem;
+  }
+  .p-date {
+    font-size: 0.55rem;
+  }
 
-    /* Recuerdos extra-small */
-    #main-screen h2 { font-size: 1.5rem; }
+  /* Recuerdos extra-small */
+  #main-screen h2 {
+    font-size: 1.5rem;
+  }
 
-    .albums-container .polaroid div[style*="height: 200px"] {
-        height: 120px !important;
-    }
+  .albums-container .polaroid div[style*="height: 200px"] {
+    height: 120px !important;
+  }
 
-    #album-modal .modal-content h3 {
-        font-size: 1.4rem !important;
-    }
+  #album-modal .modal-content h3 {
+    font-size: 1.4rem !important;
+  }
 
-    #modal-gallery {
-        grid-template-columns: 1fr !important;
-    }
+  #modal-gallery {
+    grid-template-columns: 1fr !important;
+  }
 
-    /* Carta extra-small */
-    .envelope { width: 180px; height: 120px; }
-    .envelope::before { font-size: 0.8rem; }
-    .letter-content h3 { font-size: 1.5rem; }
-    .letter-content p { font-size: 0.9rem; }
+  /* Carta extra-small */
+  .envelope {
+    width: 180px;
+    height: 120px;
+  }
+  .envelope::before {
+    font-size: 0.8rem;
+  }
+  .letter-content h3 {
+    font-size: 1.5rem;
+  }
+  .letter-content p {
+    font-size: 0.9rem;
+  }
 }
 
 /* Estilo Polaroid para las fotos de los recuerdos */
 .polaroid {
-    background: white;
-    padding: 10px 10px 40px 10px; /* Borde más ancho en la parte inferior simulando Polaroid */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    border-radius: 4px;
-    display: inline-block;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 10px;
-    position: relative;
+  background: white;
+  padding: 10px 10px 40px 10px; /* Borde más ancho en la parte inferior simulando Polaroid */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  display: inline-block;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  margin: 10px;
+  position: relative;
 }
 
 .polaroid img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 .polaroid:hover {
-    transform: scale(1.05) rotate(-2deg);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    z-index: 10;
+  transform: scale(1.05) rotate(-2deg);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  z-index: 10;
 }
 
 /* --- BARAJA DE POLAROIDS (ESTILO ABANICO) --- */
 .polaroid-deck {
-    position: relative;
-    width: 280px;
-    height: 400px;
-    margin: 30px auto 35px;
+  position: relative;
+  width: 280px;
+  height: 400px;
+  margin: 30px auto 35px;
 }
 
 /* Todas las polaroids del abanico comparten esto */
 .polaroid-deck .polaroid {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 260px;
-    padding: 10px 10px 45px 10px;
-    transform-origin: 50% 95%;
-    transition: transform 0.4s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
-    border-radius: 3px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 260px;
+  padding: 10px 10px 45px 10px;
+  transform-origin: 50% 95%;
+  transition: transform 0.4s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+  border-radius: 3px;
 }
 
 .polaroid-deck .polaroid img {
-    width: 240px;
-    height: 240px;
-    object-fit: cover;
-    border-radius: 2px;
-    display: block;
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
 }
 
 /* Posiciones del abanico — simétrico: 2 izq, centro, 2 der */
-.bg-1 { transform: rotate(-30deg); z-index: 1; }
-.bg-2 { transform: rotate(-15deg); z-index: 2; }
-.bg-3 { transform: rotate(15deg);  z-index: 2; }
-.bg-4 { transform: rotate(30deg);  z-index: 1; }
+.bg-1 {
+  transform: rotate(-30deg);
+  z-index: 1;
+}
+.bg-2 {
+  transform: rotate(-15deg);
+  z-index: 2;
+}
+.bg-3 {
+  transform: rotate(15deg);
+  z-index: 2;
+}
+.bg-4 {
+  transform: rotate(30deg);
+  z-index: 1;
+}
 
 /* La polaroid principal — CENTRADA */
 .welcome-polaroid {
-    z-index: 5 !important;
-    transform: rotate(0deg);
-    padding: 10px 10px 30px 10px !important;
+  z-index: 5 !important;
+  transform: rotate(0deg);
+  padding: 10px 10px 30px 10px !important;
 }
 
 /* Hover sutil: el abanico se abre un poquito más */
-.polaroid-deck:hover .bg-1 { transform: rotate(-36deg); }
-.polaroid-deck:hover .bg-2 { transform: rotate(-18deg); }
-.polaroid-deck:hover .bg-3 { transform: rotate(18deg); }
-.polaroid-deck:hover .bg-4 { transform: rotate(36deg); }
-.polaroid-deck:hover .welcome-polaroid { transform: rotate(0deg) scale(1.03); }
+.polaroid-deck:hover .bg-1 {
+  transform: rotate(-36deg);
+}
+.polaroid-deck:hover .bg-2 {
+  transform: rotate(-18deg);
+}
+.polaroid-deck:hover .bg-3 {
+  transform: rotate(18deg);
+}
+.polaroid-deck:hover .bg-4 {
+  transform: rotate(36deg);
+}
+.polaroid-deck:hover .welcome-polaroid {
+  transform: rotate(0deg) scale(1.03);
+}
 
 /* Mensajito escrito a mano en las polaroids de fondo */
 .bg-polaroid-msg {
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.2rem;
-    color: var(--text-dark);
-    text-align: center;
-    margin-top: 8px;
-    font-weight: 600;
+  font-family: "Dancing Script", cursive;
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  text-align: center;
+  margin-top: 8px;
+  font-weight: 600;
 }
 
 /* Textos dentro de la polaroid principal */
 .polaroid-text {
-    text-align: center;
-    margin-top: 10px;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .p-title {
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.6rem;
-    color: var(--text-dark);
-    font-weight: 600;
-    line-height: 1.2;
+  font-family: "Dancing Script", cursive;
+  font-size: 1.6rem;
+  color: var(--text-dark);
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 .p-subtitle {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
-    color: var(--primary);
-    font-weight: 600;
-    margin-top: 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-top: 5px;
 }
 
 .p-date {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 300;
-    color: var(--secondary);
-    margin-top: 3px;
-    letter-spacing: 1px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--secondary);
+  margin-top: 3px;
+  letter-spacing: 1px;
 }

@@ -7,7 +7,7 @@ description: >-
 
 # Temática del Proyecto: Amor y Aniversario (¡Lo más importante!)
 
-Este no es un proyecto de software cualquiera, es un regalo personal, romántico y emotivo. 
+Este no es un proyecto de software cualquiera, es un regalo personal, romántico y emotivo.
 
 1.  **Protagonistas:** **Darling** y **Javier**. Siempre refiérete a ella como "Darling" (nunca como Fernanda, ya que "Darling" es especial).
 2.  **Motivo:** Celebración de su **3er Aniversario**.
@@ -18,33 +18,51 @@ Este no es un proyecto de software cualquiera, es un regalo personal, romántico
     Todas las fotografías del proyecto deben seguir el formato Polaroid. A continuación el estándar obligatorio:
 
     **Polaroid simple (para galerías de comidas, recuerdos, etc.):**
+
     ```html
     <div class="polaroid">
-        <img src="../assets/img/ejemplo.png" alt="Descripción">
-        <div class="bg-polaroid-msg">Texto escrito a mano 💜</div>
+      <img src="../assets/img/ejemplo.png" alt="Descripción" />
+      <div class="bg-polaroid-msg">Texto escrito a mano 💜</div>
     </div>
     ```
 
     **Polaroid principal (con título, subtítulo y fecha):**
+
     ```html
     <div class="polaroid welcome-polaroid">
-        <img src="../assets/img/ejemplo.png" alt="Descripción">
-        <div class="polaroid-text">
-            <div class="p-title">Título cursivo grande</div>
-            <div class="p-subtitle">Subtítulo en Poppins</div>
-            <div class="p-date">✨ Fecha o detalle ✨</div>
-        </div>
+      <img src="../assets/img/ejemplo.png" alt="Descripción" />
+      <div class="polaroid-text">
+        <div class="p-title">Título cursivo grande</div>
+        <div class="p-subtitle">Subtítulo en Poppins</div>
+        <div class="p-date">✨ Fecha o detalle ✨</div>
+      </div>
     </div>
     ```
 
     **Baraja/Abanico de Polaroids (para mostrar varias fotos juntas):**
+
     ```html
     <div class="polaroid-deck">
-        <div class="polaroid bg-polaroid bg-1"><img ...><div class="bg-polaroid-msg">Msg</div></div>
-        <div class="polaroid bg-polaroid bg-2"><img ...><div class="bg-polaroid-msg">Msg</div></div>
-        <div class="polaroid welcome-polaroid"><img ...><div class="polaroid-text">...</div></div>
-        <div class="polaroid bg-polaroid bg-3"><img ...><div class="bg-polaroid-msg">Msg</div></div>
-        <div class="polaroid bg-polaroid bg-4"><img ...><div class="bg-polaroid-msg">Msg</div></div>
+      <div class="polaroid bg-polaroid bg-1">
+        <img ... />
+        <div class="bg-polaroid-msg">Msg</div>
+      </div>
+      <div class="polaroid bg-polaroid bg-2">
+        <img ... />
+        <div class="bg-polaroid-msg">Msg</div>
+      </div>
+      <div class="polaroid welcome-polaroid">
+        <img ... />
+        <div class="polaroid-text">...</div>
+      </div>
+      <div class="polaroid bg-polaroid bg-3">
+        <img ... />
+        <div class="bg-polaroid-msg">Msg</div>
+      </div>
+      <div class="polaroid bg-polaroid bg-4">
+        <img ... />
+        <div class="bg-polaroid-msg">Msg</div>
+      </div>
     </div>
     ```
 

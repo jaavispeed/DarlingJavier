@@ -1,9 +1,9 @@
 # Guía Maestra del Proyecto: 3er Aniversario 💜
 
-Esta regla central aplica **SIEMPRE** en cada nueva petición para este repositorio. Cuando recibas una petición en este proyecto, recuerda y aplica obligatoriamente las siguientes directrices (que también están detalladas en las *skills* locales del agente):
+Esta regla central aplica **SIEMPRE** en cada nueva petición para este repositorio. Cuando recibas una petición en este proyecto, recuerda y aplica obligatoriamente las siguientes directrices (que también están detalladas en las _skills_ locales del agente):
 
-1. **Temática del Proyecto (Prioridad Máxima)**: 
-   - Es una página romántica para el 3er aniversario de **Darling y Javier**. 
+1. **Temática del Proyecto (Prioridad Máxima)**:
+   - Es una página romántica para el 3er aniversario de **Darling y Javier**.
    - La fecha de inicio es el **30 de agosto del 2023**.
    - Usa siempre el nombre **"Darling"** (es especial).
    - Mantén la estética basada en tonos morados 💜, animaciones suaves y textos emotivos, mágicos y cariñosos.
@@ -33,4 +33,4 @@ Esta regla central aplica **SIEMPRE** en cada nueva petición para este reposito
    - Cada vez que se agregue una nueva funcionalidad, se cree una nueva sección, o se modifique la forma en que se muestran las pantallas del proyecto, **DEBES actualizar automáticamente el archivo `descripcion_proyecto.md`**.
    - Este archivo debe ser siempre el reflejo exacto y actualizado de cómo funciona la página y qué secciones contiene.
 
-*Si tienes dudas, revisa las skills dentro de `.agents/skills/` para más detalles sobre cada una de estas reglas.*
+_Si tienes dudas, revisa las skills dentro de `.agents/skills/` para más detalles sobre cada una de estas reglas._

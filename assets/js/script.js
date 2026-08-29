@@ -10,15 +10,15 @@ function createStars() {
     // Usar porcentaje dentro del contenedor fijo para cubrir todo uniformemente
     star.style.left = Math.random() * 100 + "%";
     star.style.top = Math.random() * 100 + "%";
-    
+
     // Tamaños variables para simular cercanía/brillo
     let size = Math.random() * 2.5 + 0.5;
     star.style.width = size + "px";
     star.style.height = size + "px";
-    
+
     star.style.animationDuration = Math.random() * 3 + 2 + "s";
     star.style.animationDelay = Math.random() * 5 + "s";
-    
+
     container.appendChild(star);
   }
 }
@@ -26,10 +26,14 @@ createStars();
 
 // Inicializar reproductor de música persistente
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Inyectar HTML y CSS del reproductor si no estamos en el index.html raíz
-    if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") return;
+  // 1. Inyectar HTML y CSS del reproductor si no estamos en el index.html raíz
+  if (
+    window.location.pathname.endsWith("index.html") ||
+    window.location.pathname === "/"
+  )
+    return;
 
-    const playerHTML = `
+  const playerHTML = `
         <style>
             .music-player {
                 position: fixed;
@@ -114,56 +118,56 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
     `;
 
-    // Insertar en el slot inline si existe (bienvenida), sino al final del body
-    const inlineSlot = document.getElementById("inline-player");
-    if (inlineSlot) {
-        inlineSlot.innerHTML = playerHTML;
+  // Insertar en el slot inline si existe (bienvenida), sino al final del body
+  const inlineSlot = document.getElementById("inline-player");
+  if (inlineSlot) {
+    inlineSlot.innerHTML = playerHTML;
+  } else {
+    document.body.insertAdjacentHTML("beforeend", playerHTML);
+  }
+
+  const bgMusic = document.getElementById("bg-music");
+  const playBtn = document.getElementById("play-pause-btn");
+
+  // 2. Restaurar estado de sessionStorage
+  const savedTime = sessionStorage.getItem("musicTime") || 0;
+  const isPlaying = sessionStorage.getItem("musicPlaying") === "true";
+  const savedVolume = sessionStorage.getItem("musicVolume") || 0.2;
+
+  bgMusic.volume = savedVolume;
+  bgMusic.currentTime = parseFloat(savedTime);
+
+  if (isPlaying) {
+    bgMusic.play().catch(() => console.log("Esperando interacción..."));
+    playBtn.textContent = "⏸";
+  }
+
+  // 3. Guardar estado al salir o cambiar de página
+  window.addEventListener("beforeunload", () => {
+    sessionStorage.setItem("musicTime", bgMusic.currentTime);
+    sessionStorage.setItem("musicPlaying", !bgMusic.paused);
+    sessionStorage.setItem("musicVolume", bgMusic.volume);
+  });
+
+  // Guardar estado de forma continua
+  setInterval(() => {
+    sessionStorage.setItem("musicTime", bgMusic.currentTime);
+    sessionStorage.setItem("musicPlaying", !bgMusic.paused);
+  }, 1000);
+
+  // 4. Lógica del botón
+  playBtn.addEventListener("click", () => {
+    if (bgMusic.paused) {
+      bgMusic.play();
+      playBtn.textContent = "⏸";
     } else {
-        document.body.insertAdjacentHTML('beforeend', playerHTML);
+      bgMusic.pause();
+      playBtn.textContent = "▶";
     }
+  });
 
-    const bgMusic = document.getElementById("bg-music");
-    const playBtn = document.getElementById("play-pause-btn");
-
-    // 2. Restaurar estado de sessionStorage
-    const savedTime = sessionStorage.getItem("musicTime") || 0;
-    const isPlaying = sessionStorage.getItem("musicPlaying") === "true";
-    const savedVolume = sessionStorage.getItem("musicVolume") || 0.2;
-
-    bgMusic.volume = savedVolume;
-    bgMusic.currentTime = parseFloat(savedTime);
-
-    if (isPlaying) {
-        bgMusic.play().catch(() => console.log("Esperando interacción..."));
-        playBtn.textContent = "⏸";
-    }
-
-    // 3. Guardar estado al salir o cambiar de página
-    window.addEventListener("beforeunload", () => {
-        sessionStorage.setItem("musicTime", bgMusic.currentTime);
-        sessionStorage.setItem("musicPlaying", !bgMusic.paused);
-        sessionStorage.setItem("musicVolume", bgMusic.volume);
-    });
-    
-    // Guardar estado de forma continua
-    setInterval(() => {
-        sessionStorage.setItem("musicTime", bgMusic.currentTime);
-        sessionStorage.setItem("musicPlaying", !bgMusic.paused);
-    }, 1000);
-
-    // 4. Lógica del botón
-    playBtn.addEventListener("click", () => {
-        if (bgMusic.paused) {
-            bgMusic.play();
-            playBtn.textContent = "⏸";
-        } else {
-            bgMusic.pause();
-            playBtn.textContent = "▶";
-        }
-    });
-    
-    bgMusic.addEventListener("play", () => playBtn.textContent = "⏸");
-    bgMusic.addEventListener("pause", () => playBtn.textContent = "▶");
+  bgMusic.addEventListener("play", () => (playBtn.textContent = "⏸"));
+  bgMusic.addEventListener("pause", () => (playBtn.textContent = "▶"));
 });
 
 // Mostrar campo de contraseña
@@ -217,22 +221,27 @@ function checkPassword() {
 document.addEventListener("DOMContentLoaded", () => {
   const dateInput = document.getElementById("date-password");
   if (dateInput) {
-    dateInput.addEventListener("input", function(e) {
+    dateInput.addEventListener("input", function (e) {
       // Elimina todo lo que no sea número
       let value = this.value.replace(/\D/g, "");
-      
+
       // Añade los guiones automáticamente
       if (value.length > 2 && value.length <= 4) {
         value = value.substring(0, 2) + "-" + value.substring(2);
       } else if (value.length > 4) {
-        value = value.substring(0, 2) + "-" + value.substring(2, 4) + "-" + value.substring(4, 8);
+        value =
+          value.substring(0, 2) +
+          "-" +
+          value.substring(2, 4) +
+          "-" +
+          value.substring(4, 8);
       }
-      
+
       this.value = value;
     });
 
     // Permitir enviar con la tecla Enter
-    dateInput.addEventListener("keypress", function(e) {
+    dateInput.addEventListener("keypress", function (e) {
       if (e.key === "Enter") {
         checkPassword();
       }
@@ -292,67 +301,69 @@ calculateDays();
 
 // Lógica de los Álbumes de Recuerdos
 const albumData = {
-    hamburguesas: {
-        title: 'Nuestra Favorita: ¡Hamburguesas! 🍔🍟',
-        folder: '../assets/img/hamburguesas',
-        placeholder: '📸 (Las fotos de la carpeta "assets/img/hamburguesas" irán aquí)'
-    },
-    comidas: {
-        title: 'Momentos Deliciosos Juntos 🍕🍣',
-        folder: '../assets/img/comidas_varias',
-        placeholder: '📸 (Las fotos de la carpeta "assets/img/comidas_varias" irán aquí)'
-    },
-    juntos: {
-        title: 'Tú y Yo 💑',
-        folder: '../assets/img/juntos',
-        placeholder: '📸 (Las fotos de nosotros juntos irán aquí)'
-    },
-    viajes: {
-        title: 'Nuestros Viajes ✈️',
-        folder: '../assets/img/viajes',
-        placeholder: '📸 (Las fotos de nuestros viajes irán aquí)'
-    },
-    otros: {
-        title: 'Otros Momentos Mágicos ✨',
-        folder: '../assets/img/otros',
-        placeholder: '📸 (Otras fotos especiales irán aquí)'
-    },
-    locuras: {
-        title: 'Nuestras Locuras 🤪',
-        folder: '../assets/img/locuras',
-        placeholder: '📸 (Fotos divertidas irán aquí)'
-    }
+  hamburguesas: {
+    title: "Nuestra Favorita: ¡Hamburguesas! 🍔🍟",
+    folder: "../assets/img/hamburguesas",
+    placeholder:
+      '📸 (Las fotos de la carpeta "assets/img/hamburguesas" irán aquí)',
+  },
+  comidas: {
+    title: "Momentos Deliciosos Juntos 🍕🍣",
+    folder: "../assets/img/comidas_varias",
+    placeholder:
+      '📸 (Las fotos de la carpeta "assets/img/comidas_varias" irán aquí)',
+  },
+  juntos: {
+    title: "Tú y Yo 💑",
+    folder: "../assets/img/juntos",
+    placeholder: "📸 (Las fotos de nosotros juntos irán aquí)",
+  },
+  viajes: {
+    title: "Nuestros Viajes ✈️",
+    folder: "../assets/img/viajes",
+    placeholder: "📸 (Las fotos de nuestros viajes irán aquí)",
+  },
+  otros: {
+    title: "Otros Momentos Mágicos ✨",
+    folder: "../assets/img/otros",
+    placeholder: "📸 (Otras fotos especiales irán aquí)",
+  },
+  locuras: {
+    title: "Nuestras Locuras 🤪",
+    folder: "../assets/img/locuras",
+    placeholder: "📸 (Fotos divertidas irán aquí)",
+  },
 };
 
 function abrirAlbum(albumId) {
-    const modal = document.getElementById('album-modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalGallery = document.getElementById('modal-gallery');
-    
-    if (modal && albumData[albumId]) {
-        modalTitle.textContent = albumData[albumId].title;
-        
-        // Simular fotos con polaroids
-        modalGallery.innerHTML = `
+  const modal = document.getElementById("album-modal");
+  const modalTitle = document.getElementById("modal-title");
+  const modalGallery = document.getElementById("modal-gallery");
+
+  if (modal && albumData[albumId]) {
+    modalTitle.textContent = albumData[albumId].title;
+
+    // Simular fotos con polaroids
+    modalGallery.innerHTML = `
             <div class="gallery-placeholder" style="grid-column: 1 / -1; background-color: white; border: 2px dashed var(--heart); border-radius: 10px; padding: 40px 20px; color: var(--text-dark); font-weight: 600; text-align: center;">
                 <p>${albumData[albumId].placeholder}</p>
                 <p style="font-size: 0.85rem; color: var(--secondary); margin-top: 10px;">Ruta esperada: ${albumData[albumId].folder}</p>
             </div>
         `;
-        
-        modal.classList.remove('hidden');
-        setTimeout(() => {
-            modal.style.opacity = '1';
-        }, 10);
-    }
+
+    modal.classList.remove("hidden");
+    setTimeout(() => {
+      modal.style.opacity = "1";
+    }, 10);
+  }
 }
 
 function cerrarAlbum() {
-    const modal = document.getElementById('album-modal');
-    if (modal) {
-        modal.style.opacity = '0';
-        setTimeout(() => {
-            modal.classList.add('hidden');
-        }, 300);
-    }
+  const modal = document.getElementById("album-modal");
+  if (modal) {
+    modal.style.opacity = "0";
+    setTimeout(() => {
+      modal.classList.add("hidden");
+    }, 300);
+  }
 }

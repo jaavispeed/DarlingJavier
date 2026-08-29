@@ -1,46 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Una Carta para Ti 💜</title>
-    <link rel="icon" type="image/png" href="../assets/img/tuyyoGatitos.png">
-    <link rel="stylesheet" href="../assets/css/styles.css">
-</head>
-<body style="opacity: 0; animation: fadeInPage 1s forwards;">
+    <link rel="icon" type="image/png" href="../assets/img/tuyyoGatitos.png" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body style="opacity: 0; animation: fadeInPage 1s forwards">
     <!-- Estrellas de fondo interactivas -->
     <div class="bg-stars" id="bg-stars"></div>
 
-    <div class="screen" style="justify-content: flex-start; padding-top: 50px;">
-        <!-- Botón para volver -->
-        <div style="width: 100%; max-width: 800px; text-align: left; margin-bottom: 30px;">
-            <button class="btn-primary btn-sm" onclick="window.location.href='recuerdos.html'" style="margin-left: 0;">⬅ Volver a recuerdos</button>
-        </div>
+    <div class="screen" style="justify-content: flex-start; padding-top: 50px">
+      <!-- Botón para volver -->
+      <div
+        style="
+          width: 100%;
+          max-width: 800px;
+          text-align: left;
+          margin-bottom: 30px;
+        "
+      >
+        <button
+          class="btn-primary btn-sm"
+          onclick="window.location.href = 'recuerdos.html'"
+          style="margin-left: 0"
+        >
+          ⬅ Volver a recuerdos
+        </button>
+      </div>
 
-        <div class="letter-section" style="margin-top: 0;">
-            <div class="envelope" id="envelope" onclick="openLetter()"></div>
-            <div class="letter-content" id="letter">
-                <h3>Mi querida Darling,</h3>
-                <p>
-                    (Aquí irá la hermosa carta que tienes preparada).<br><br>
-                    Han sido 3 años maravillosos a tu lado. Cada momento, cada risa, cada desafío nos ha unido más. Eres mi persona favorita en el mundo y no puedo esperar para ver qué nos depara el futuro.<br><br>
-                    Gracias por ser tú, por amarme y por dejarme amarte.
-                </p>
-                <p style="margin-top: 20px; font-weight: 600; color: var(--primary);">
-                    Con todo mi amor,<br>Javier 💜
-                </p>
-            </div>
+      <div class="letter-section" style="margin-top: 0">
+        <div class="envelope" id="envelope" onclick="openLetter()"></div>
+        <div class="letter-content" id="letter">
+          <h3>Mi querida Darling,</h3>
+          <p>
+            (Aquí irá la hermosa carta que tienes preparada).<br /><br />
+            Han sido 3 años maravillosos a tu lado. Cada momento, cada risa,
+            cada desafío nos ha unido más. Eres mi persona favorita en el mundo
+            y no puedo esperar para ver qué nos depara el futuro.<br /><br />
+            Gracias por ser tú, por amarme y por dejarme amarte.
+          </p>
+          <p style="margin-top: 20px; font-weight: 600; color: var(--primary)">
+            Con todo mi amor,<br />Javier 💜
+          </p>
         </div>
+      </div>
 
-        <!-- Slot para el reproductor en móvil -->
-        <div id="inline-player"></div>
+      <!-- Slot para el reproductor en móvil -->
+      <div id="inline-player"></div>
     </div>
 
     <script src="../assets/js/script.js"></script>
     <style>
-        @keyframes fadeInPage {
-            to { opacity: 1; }
+      @keyframes fadeInPage {
+        to {
+          opacity: 1;
         }
+      }
     </style>
-</body>
+  </body>
 </html>
