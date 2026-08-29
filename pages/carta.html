@@ -52,21 +52,23 @@
                 "
                 >Escucha mientras lees 💜</span
               >
-              <audio
-                controls
-                style="
-                  width: 100%;
-                  height: 30px;
-                  outline: none;
-                  border-radius: 20px;
-                "
-              >
-                <source
-                  src="../assets/music/DarlingAudio.m4a"
-                  type="audio/mp4"
-                />
+              <audio id="carta-audio" controls style="width: 100%; height: 30px; outline: none; border-radius: 20px;">
+                <source src="../assets/music/DarlingAudio.m4a" type="audio/mp4" />
                 Tu navegador no soporta el reproductor de audio.
               </audio>
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  const cartaAudio = document.getElementById("carta-audio");
+                  cartaAudio.addEventListener("play", () => {
+                    const bgMusic = document.getElementById("bg-music");
+                    const playBtn = document.getElementById("play-pause-btn");
+                    if (bgMusic && !bgMusic.paused) {
+                      bgMusic.pause();
+                      if (playBtn) playBtn.textContent = "▶";
+                    }
+                  });
+                });
+              </script>
             </div>
           </div>
 
@@ -104,14 +106,7 @@
             Y aun así, en mis momentos de silenciosa melancolía, no puedo evitar
             que un susurro me asalte el corazón: ¿harías tú lo mismo por mí?
           </p>
-          <p
-            style="
-              margin-top: 20px;
-              font-weight: 600;
-              color: var(--primary);
-              text-align: center;
-            "
-          >
+          <p style="margin-top: 30px; font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: var(--primary); text-align: center; line-height: 1.2;">
             Con todo mi amor,<br />Javier 💜
           </p>
         </div>
