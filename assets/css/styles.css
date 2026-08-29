@@ -17,7 +17,9 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #05020a;
-    background: radial-gradient(circle at top center, #1a0b2e, #05020a);
+    background-image: radial-gradient(circle at top center, #1a0b2e, #05020a);
+    background-attachment: fixed;
+    background-size: cover;
     color: #f5eef8;
     overflow-x: hidden;
     min-height: 100vh;
@@ -39,11 +41,10 @@ body {
 /* Estrellas flotantes de fondo */
 .bg-stars {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
     pointer-events: none;
     z-index: 0;
 }
