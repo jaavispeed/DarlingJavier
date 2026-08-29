@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nosotros 💑 - Nuestra Historia</title>
+    <link rel="icon" type="image/png" href="../assets/img/tuyyoGatitos.png" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <style>
+      .timeline-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        flex: 1; /* Permite que el contenedor empuje el contenido y se centre en el espacio disponible */
+        display: flex;
+        align-items: center; /* Centra la línea de tiempo verticalmente en el área restante */
+      }
+      
+      .timeline {
+        display: flex;
+        position: relative;
+        align-items: stretch; 
+        width: 100%; /* Asegura que tome todo el ancho */
+        margin: 40px 0;
+      }
+      
+      .timeline-line {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%; /* Forzar el ancho completo */
+        height: 6px; /* Más gruesa para que se vea claramente */
+        background-color: var(--primary, #8e44ad);
+        transform: translateY(-50%);
+        border-radius: 3px;
+        z-index: 1;
+      }
+      
+      .timeline-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding: 0 10px;
+        z-index: 2;
+      }
+      
+      .timeline-node {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        background-color: var(--light, #fdfefe);
+        border: 4px solid var(--primary, #8e44ad);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.1rem;
+        z-index: 3;
+        box-shadow: 0 0 15px rgba(142, 68, 173, 0.3); /* Resplandor morado para destacar */
+      }
+      
+      .timeline-half {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 250px; /* Expande la línea de tiempo hacia arriba y abajo */
+      }
+      
+      .top-half {
+        justify-content: flex-end;
+        padding-bottom: 40px; /* Separación ampliada de la línea central */
+      }
+      
+      .bottom-half {
+        justify-content: flex-start;
+        padding-top: 40px; /* Separación ampliada de la línea central */
+      }
+      
+      .timeline-content {
+        background-color: white;
+        padding: 12px;
+        padding-bottom: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        border-radius: 4px;
+        transition: transform 0.3s ease;
+        position: relative;
+        z-index: 4;
+        width: 100%;
+      }
+      
+      .timeline-content img {
+        width: 100%;
+        height: 180px; /* Imágenes más grandes (expandidas) */
+        object-fit: cover;
+        border-radius: 2px;
+        display: block;
+      }
+      
+      .timeline-content:hover {
+        transform: scale(1.1) rotate(0deg) !important;
+        z-index: 10;
+      }
+      
+      .timeline-date {
+        color: var(--primary);
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.6rem;
+        margin: 12px 0 2px 0;
+        text-align: center;
+      }
+      
+      .timeline-desc {
+        color: var(--text-dark);
+        margin: 0;
+        text-align: center;
+        font-size: 0.9rem;
+        font-family: 'Poppins', sans-serif;
+      }
+      
+      /* Responsive Móvil: Línea vertical */
+      @media screen and (max-width: 992px) {
+        .timeline-container {
+          align-items: flex-start; /* En móvil es mejor que no esté forzado al centro vertical si es largo */
+        }
+        .timeline {
+          flex-direction: column;
+        }
+        .timeline-line {
+          top: 0;
+          bottom: 0;
+          left: 43px; /* Posición exacta para que cruce el centro del nodo */
+          width: 6px;
+          height: 100%;
+          transform: none;
+        }
+        .timeline-item {
+          flex-direction: row;
+          padding: 20px 0;
+          min-height: 220px;
+        }
+        .timeline-node {
+          left: 46px; /* Centrado sobre la línea de 43px + 3px (mitad de 6px) */
+          top: 50%;
+        }
+        .timeline-half {
+          flex: none;
+          width: 100%;
+          min-height: auto;
+          padding: 0 20px 0 90px !important; /* Espacio para el nodo y la línea a la izquierda */
+          justify-content: center !important;
+        }
+        .empty-half {
+          display: none !important; 
+        }
+        .timeline-content img {
+          height: 220px; /* Aún más grandes en móvil */
+        }
+        .timeline-date {
+          font-size: 2.2rem;
+        }
+        .timeline-desc {
+          font-size: 1.1rem;
+        }
+      }
+    </style>
+  </head>
+  <body style="opacity: 0; animation: fadeInPage 1s forwards">
+    <div class="bg-stars" id="bg-stars"></div>
+    
+    <!-- Ajuste: flex-start para que el título se quede arriba "estándar", padding-top generoso -->
+    <div class="screen" style="max-width: 100%; padding: 40px 20px; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+      
+      <!-- Contenedor del Título (Arriba del todo) -->
+      <div style="width: 100%; max-width: 1200px;">
+        <div style="width: 100%; display: flex; justify-content: flex-start; margin-bottom: 15px;">
+          <button onclick="window.location.href='recuerdos.html'" style="background: transparent; border: 1px solid rgba(142, 68, 173, 0.4); border-radius: 20px; color: var(--primary); font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 6px; padding: 6px 16px; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(142, 68, 173, 0.1)'; this.style.transform='translateX(-4px)';" onmouseout="this.style.background='transparent'; this.style.transform='translateX(0)';">
+            <span>←</span> Volver
+          </button>
+        </div>
+        <h2 style="font-size: 3.5rem; text-align: center; color: var(--primary); font-family: 'Dancing Script', cursive; margin-top: 0;">Nuestra Historia en el Tiempo 💑</h2>
+        <p style="text-align: center; color: var(--text-dark); margin-bottom: 20px">Nuestros momentos mágicos.</p>
+      </div>
+
+      <!-- Contenedor de la Línea de Tiempo (Ocupa el resto y se centra) -->
+      <div class="timeline-container">
+        <div class="timeline">
+          <div class="timeline-line"></div>
+          
+          <!-- Elemento 1: Arriba -->
+          <div class="timeline-item">
+            <div class="timeline-node">💜</div>
+            <div class="timeline-half top-half">
+              <div class="timeline-content" style="transform: rotate(-3deg);">
+                <img src="../assets/img/Nosotros/2023AgostoTodoComenzo.png" alt="Agosto 2023" />
+                <div class="timeline-date">Agosto 2023</div>
+                <p class="timeline-desc">Todo Comenzó</p>
+              </div>
+            </div>
+            <div class="timeline-half bottom-half empty-half"></div>
+          </div>
+
+          <!-- Elemento 2: Abajo -->
+          <div class="timeline-item">
+            <div class="timeline-node">💜</div>
+            <div class="timeline-half top-half empty-half"></div>
+            <div class="timeline-half bottom-half">
+              <div class="timeline-content" style="transform: rotate(2deg);">
+                <img src="../assets/img/Nosotros/2024Mayo.jpg" alt="Mayo 2024" />
+                <div class="timeline-date">Mayo 2024</div>
+                <p class="timeline-desc">Nuestros Momentos</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Elemento 3: Arriba -->
+          <div class="timeline-item">
+            <div class="timeline-node">💜</div>
+            <div class="timeline-half top-half">
+              <div class="timeline-content" style="transform: rotate(1deg);">
+                <img src="../assets/img/Nosotros/2024oCTUBRE.jpg" alt="Octubre 2024" />
+                <div class="timeline-date">Octubre 2024</div>
+                <p class="timeline-desc">Juntos</p>
+              </div>
+            </div>
+            <div class="timeline-half bottom-half empty-half"></div>
+          </div>
+
+          <!-- Elemento 4: Abajo -->
+          <div class="timeline-item">
+            <div class="timeline-node">💜</div>
+            <div class="timeline-half top-half empty-half"></div>
+            <div class="timeline-half bottom-half">
+              <div class="timeline-content" style="transform: rotate(-2deg);">
+                <img src="../assets/img/Nosotros/2026Enero.jpg" alt="Enero 2026" />
+                <div class="timeline-date">Enero 2026</div>
+                <p class="timeline-desc">Un nuevo año</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Elemento 5: Arriba -->
+          <div class="timeline-item">
+            <div class="timeline-node">💜</div>
+            <div class="timeline-half top-half">
+              <div class="timeline-content" style="transform: rotate(-1deg);">
+                <img src="../assets/img/Nosotros/2026Enero2.jpg" alt="Enero 2026" />
+                <div class="timeline-date">Enero 2026</div>
+                <p class="timeline-desc">Más amor</p>
+              </div>
+            </div>
+            <div class="timeline-half bottom-half empty-half"></div>
+          </div>
+
+          <!-- Elemento 6: Abajo -->
+          <div class="timeline-item">
+            <div class="timeline-node">💜</div>
+            <div class="timeline-half top-half empty-half"></div>
+            <div class="timeline-half bottom-half">
+              <div class="timeline-content" style="transform: rotate(3deg);">
+                <img src="../assets/img/Nosotros/2026Julio.jpg" alt="Julio 2026" />
+                <div class="timeline-date">Julio 2026</div>
+                <p class="timeline-desc">Siempre</p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div id="inline-player"></div>
+    </div>
+    <script src="../assets/js/script.js"></script>
+    <style>@keyframes fadeInPage { to { opacity: 1; } }</style>
+  </body>
+</html>

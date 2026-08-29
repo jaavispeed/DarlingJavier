@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hamburguesas 🍔 - Nuestros Recuerdos</title>
+    <link rel="icon" type="image/png" href="../assets/img/tuyyoGatitos.png" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body style="opacity: 0; animation: fadeInPage 1s forwards">
+    <div class="bg-stars" id="bg-stars"></div>
+    <div class="screen" style="max-width: 1000px; padding: 20px;">
+      <div style="width: 100%; display: flex; justify-content: flex-start; margin-bottom: 15px;">
+        <button onclick="window.location.href='recuerdos.html'" style="background: transparent; border: 1px solid rgba(142, 68, 173, 0.4); border-radius: 20px; color: var(--primary); font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 6px; padding: 6px 16px; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(142, 68, 173, 0.1)'; this.style.transform='translateX(-4px)';" onmouseout="this.style.background='transparent'; this.style.transform='translateX(0)';">
+          <span>←</span> Volver
+        </button>
+      </div>
+      <h2 style="font-size: 2.5rem; text-align: center; color: var(--primary);">Nuestra Favorita: ¡Hamburguesas! 🍔🍟</h2>
+      <p style="text-align: center; color: var(--text-dark); margin-bottom: 40px">Momentos deliciosos disfrutando nuestra comida favorita.</p>
+
+      <div class="albums-container">
+        <div class="polaroid" style="cursor: default; transform: none; transition: none;">
+          <img src="../assets/img/hamburguesas/hamburguesa1.jpg" alt="Recuerdo" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; display: block;" />
+          <div class="polaroid-text"><div class="p-title" style="font-size: 1rem;">Hermoso recuerdo</div></div>
+        </div>
+        <div class="polaroid" style="cursor: default; transform: none; transition: none;">
+          <img src="../assets/img/hamburguesas/hamburguesa2.jpg" alt="Recuerdo" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; display: block;" />
+          <div class="polaroid-text"><div class="p-title" style="font-size: 1rem;">Hermoso recuerdo</div></div>
+        </div>
+        <div class="polaroid" style="cursor: default; transform: none; transition: none;">
+          <img src="../assets/img/hamburguesas/hamburguesa3.jpg" alt="Recuerdo" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; display: block;" />
+          <div class="polaroid-text"><div class="p-title" style="font-size: 1rem;">Hermoso recuerdo</div></div>
+        </div>
+        <div class="polaroid" style="cursor: default; transform: none; transition: none;">
+          <img src="../assets/img/hamburguesas/hamburguesas4.jpg" alt="Recuerdo" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; display: block;" />
+          <div class="polaroid-text"><div class="p-title" style="font-size: 1rem;">Hermoso recuerdo</div></div>
+        </div>
+        <div class="polaroid" style="cursor: default; transform: none; transition: none;">
+          <img src="../assets/img/hamburguesas/5.jpg" alt="Recuerdo" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; display: block;" />
+          <div class="polaroid-text"><div class="p-title" style="font-size: 1rem;">Hermoso recuerdo</div></div>
+        </div>
+      </div>
+      <div id="inline-player"></div>
+    </div>
+    <script src="../assets/js/script.js"></script>
+    <style>@keyframes fadeInPage { to { opacity: 1; } }</style>
+  </body>
+</html>
