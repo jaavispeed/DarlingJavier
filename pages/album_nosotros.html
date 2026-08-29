@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -84,7 +84,7 @@
       .timeline-content {
         background-color: white;
         padding: 12px;
-        padding-bottom: 20px;
+        padding-bottom: 45px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         border-radius: 4px;
         transition: transform 0.3s ease;
@@ -108,6 +108,7 @@
         z-index: 10;
       }
       
+      .timeline-date-floating { color: var(--primary); font-family: 'Dancing Script', cursive; font-size: 2.2rem; text-align: center; margin: 15px 0; text-shadow: 1px 1px 3px rgba(0,0,0,0.1); }
       .timeline-date {
         color: var(--primary);
         font-family: 'Dancing Script', cursive;
@@ -163,7 +164,8 @@
           height: auto; /* Se ajusta a la foto real */
           max-height: 450px;
         }
-        .timeline-date {
+        .timeline-date-floating { color: var(--primary); font-family: 'Dancing Script', cursive; font-size: 2.2rem; text-align: center; margin: 15px 0; text-shadow: 1px 1px 3px rgba(0,0,0,0.1); }
+      .timeline-date {
           font-size: 2.2rem;
         }
         .timeline-desc {
@@ -200,9 +202,8 @@
             <div class="timeline-half top-half">
               <div class="timeline-content" style="transform: rotate(-3deg);">
                 <img src="../assets/img/Nosotros/2023AgostoTodoComenzo.png" alt="Agosto 2023" />
-                <div class="timeline-date">Agosto 2023</div>
-                <p class="timeline-desc">Todo Comenzó</p>
               </div>
+              <div class="timeline-date-floating">Agosto 2023</div>
             </div>
             <div class="timeline-half bottom-half empty-half"></div>
           </div>
@@ -212,10 +213,9 @@
             <div class="timeline-node">💜</div>
             <div class="timeline-half top-half empty-half"></div>
             <div class="timeline-half bottom-half">
+              <div class="timeline-date-floating">Mayo 2024</div>
               <div class="timeline-content" style="transform: rotate(2deg);">
                 <img src="../assets/img/Nosotros/2024Mayo.jpg" alt="Mayo 2024" />
-                <div class="timeline-date">Mayo 2024</div>
-                <p class="timeline-desc">Nuestros Momentos</p>
               </div>
             </div>
           </div>
@@ -226,22 +226,20 @@
             <div class="timeline-half top-half">
               <div class="timeline-content" style="transform: rotate(1deg);">
                 <img src="../assets/img/Nosotros/2024oCTUBRE.jpg" alt="Octubre 2024" />
-                <div class="timeline-date">Octubre 2024</div>
-                <p class="timeline-desc">Juntos</p>
               </div>
+              <div class="timeline-date-floating">Octubre 2024</div>
             </div>
             <div class="timeline-half bottom-half empty-half"></div>
           </div>
 
-          <!-- Elemento 4: Abajo -->
+          <!-- Elemento 4: Abajo (NEW) -->
           <div class="timeline-item">
             <div class="timeline-node">💜</div>
             <div class="timeline-half top-half empty-half"></div>
             <div class="timeline-half bottom-half">
+              <div class="timeline-date-floating">Mayo 2025</div>
               <div class="timeline-content" style="transform: rotate(-2deg);">
-                <img src="../assets/img/Nosotros/2026Enero.jpg" alt="Enero 2026" />
-                <div class="timeline-date">Enero 2026</div>
-                <p class="timeline-desc">Un nuevo año</p>
+                <img src="../assets/img/Nosotros/2025Mayo.jpg" alt="Mayo 2025" />
               </div>
             </div>
           </div>
@@ -251,10 +249,9 @@
             <div class="timeline-node">💜</div>
             <div class="timeline-half top-half">
               <div class="timeline-content" style="transform: rotate(-1deg);">
-                <img src="../assets/img/Nosotros/2026Enero2.jpg" alt="Enero 2026" />
-                <div class="timeline-date">Enero 2026</div>
-                <p class="timeline-desc">Más amor</p>
+                <img src="../assets/img/Nosotros/2026Enero.jpg" alt="Enero 2026" />
               </div>
+              <div class="timeline-date-floating">Enero 2026</div>
             </div>
             <div class="timeline-half bottom-half empty-half"></div>
           </div>
@@ -264,12 +261,23 @@
             <div class="timeline-node">💜</div>
             <div class="timeline-half top-half empty-half"></div>
             <div class="timeline-half bottom-half">
+              <div class="timeline-date-floating">Enero 2026</div>
               <div class="timeline-content" style="transform: rotate(3deg);">
-                <img src="../assets/img/Nosotros/2026Julio.jpg" alt="Julio 2026" />
-                <div class="timeline-date">Julio 2026</div>
-                <p class="timeline-desc">Siempre</p>
+                <img src="../assets/img/Nosotros/2026Enero2.jpg" alt="Enero 2026" />
               </div>
             </div>
+          </div>
+
+          <!-- Elemento 7: Arriba -->
+          <div class="timeline-item">
+            <div class="timeline-node">💜</div>
+            <div class="timeline-half top-half">
+              <div class="timeline-content" style="transform: rotate(-2deg);">
+                <img src="../assets/img/Nosotros/2026Julio.jpg" alt="Julio 2026" />
+              </div>
+              <div class="timeline-date-floating">Julio 2026</div>
+            </div>
+            <div class="timeline-half bottom-half empty-half"></div>
           </div>
           
         </div>

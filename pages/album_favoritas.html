@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -9,27 +9,155 @@
   </head>
   <body style="opacity: 0; animation: fadeInPage 1s forwards">
     <div class="bg-stars" id="bg-stars"></div>
-    <div class="screen" style="max-width: 100%; padding: 40px 20px; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
-      <div style="width: 100%; max-width: 1200px;">
-        <div style="width: 100%; display: flex; justify-content: flex-start; margin-bottom: 15px;">
-        <button onclick="window.location.href='recuerdos.html'" style="background: transparent; border: 1px solid rgba(142, 68, 173, 0.4); border-radius: 20px; color: var(--primary); font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 6px; padding: 6px 16px; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(142, 68, 173, 0.1)'; this.style.transform='translateX(-4px)';" onmouseout="this.style.background='transparent'; this.style.transform='translateX(0)';">
-          <span>←</span> Volver
-        </button>
-      </div>
-      <h2 style="font-size: 2.5rem; text-align: center; color: var(--primary);">Mis Favoritas Tuyas 💜</h2>
-      <p class="page-subtitle">Las fotos donde te ves especialmente radiante.</p>
+    <div
+      class="screen"
+      style="
+        max-width: 100%;
+        padding: 40px 20px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+      "
+    >
+      <div style="width: 100%; max-width: 1200px">
+        <div
+          style="
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 15px;
+          "
+        >
+          <button
+            onclick="window.location.href = 'recuerdos.html'"
+            style="
+              background: transparent;
+              border: 1px solid rgba(142, 68, 173, 0.4);
+              border-radius: 20px;
+              color: var(--primary);
+              font-family: &quot;Poppins&quot;, sans-serif;
+              font-size: 0.85rem;
+              font-weight: 500;
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              gap: 6px;
+              padding: 6px 16px;
+              transition: all 0.2s ease;
+            "
+            onmouseover="
+              this.style.background = 'rgba(142, 68, 173, 0.1)';
+              this.style.transform = 'translateX(-4px)';
+            "
+            onmouseout="
+              this.style.background = 'transparent';
+              this.style.transform = 'translateX(0)';
+            "
+          >
+            <span>←</span> Volver
+          </button>
+        </div>
+        <h2
+          style="font-size: 2.5rem; text-align: center; color: var(--primary)"
+        >
+          Mis Favoritas Tuyas 💜
+        </h2>
+        <p class="page-subtitle">Las fotos que me encantan.</p>
 
-      <div class="albums-container">
-        <div class="polaroid" style="cursor: default; transform: none; transition: none;"><img src="../assets/img/MisFavoritas/1.jpg" alt="Recuerdo" style="width: 100%; height: 320px; object-fit: cover; border-radius: 4px; display: block;" /><div class="polaroid-text"><div class="p-title" style="font-size: 1rem;">Hermoso recuerdo</div></div></div>
-        <div class="polaroid" style="cursor: default; transform: none; transition: none;"><img src="../assets/img/MisFavoritas/2.jpg" alt="Recuerdo" style="width: 100%; height: 320px; object-fit: cover; border-radius: 4px; display: block;" /><div class="polaroid-text"><div class="p-title" style="font-size: 1rem;">Hermoso recuerdo</div></div></div>
-        <div class="polaroid" style="cursor: default; transform: none; transition: none;"><img src="../assets/img/MisFavoritas/3.jpg" alt="Recuerdo" style="width: 100%; height: 320px; object-fit: cover; border-radius: 4px; display: block;" /><div class="polaroid-text"><div class="p-title" style="font-size: 1rem;">Hermoso recuerdo</div></div></div>
-        <div class="polaroid" style="cursor: default; transform: none; transition: none;"><img src="../assets/img/MisFavoritas/4.jpg" alt="Recuerdo" style="width: 100%; height: 320px; object-fit: cover; border-radius: 4px; display: block;" /><div class="polaroid-text"><div class="p-title" style="font-size: 1rem;">Hermoso recuerdo</div></div></div>
-        <div class="polaroid" style="cursor: default; transform: none; transition: none;"><img src="../assets/img/MisFavoritas/5.jpg" alt="Recuerdo" style="width: 100%; height: 320px; object-fit: cover; border-radius: 4px; display: block;" /><div class="polaroid-text"><div class="p-title" style="font-size: 1rem;">Hermoso recuerdo</div></div></div>
-      </div>
+        <div class="albums-container">
+          <div
+            class="polaroid"
+            style="cursor: default; transform: none; transition: none"
+          >
+            <img
+              src="../assets/img/MisFavoritas/1.jpg"
+              alt="Recuerdo"
+              style="
+                width: 100%;
+                height: 320px;
+                object-fit: cover;
+                border-radius: 4px;
+                display: block;
+              "
+            />
+          </div>
+          <div
+            class="polaroid"
+            style="cursor: default; transform: none; transition: none"
+          >
+            <img
+              src="../assets/img/MisFavoritas/2.jpg"
+              alt="Recuerdo"
+              style="
+                width: 100%;
+                height: 320px;
+                object-fit: cover;
+                border-radius: 4px;
+                display: block;
+              "
+            />
+          </div>
+          <div
+            class="polaroid"
+            style="cursor: default; transform: none; transition: none"
+          >
+            <img
+              src="../assets/img/MisFavoritas/3.jpg"
+              alt="Recuerdo"
+              style="
+                width: 100%;
+                height: 320px;
+                object-fit: cover;
+                border-radius: 4px;
+                display: block;
+              "
+            />
+          </div>
+          <div
+            class="polaroid"
+            style="cursor: default; transform: none; transition: none"
+          >
+            <img
+              src="../assets/img/MisFavoritas/4.jpg"
+              alt="Recuerdo"
+              style="
+                width: 100%;
+                height: 320px;
+                object-fit: cover;
+                border-radius: 4px;
+                display: block;
+              "
+            />
+          </div>
+          <div
+            class="polaroid"
+            style="cursor: default; transform: none; transition: none"
+          >
+            <img
+              src="../assets/img/MisFavoritas/5.jpg"
+              alt="Recuerdo"
+              style="
+                width: 100%;
+                height: 320px;
+                object-fit: cover;
+                border-radius: 4px;
+                display: block;
+              "
+            />
+          </div>
+        </div>
       </div>
       <div id="inline-player"></div>
     </div>
     <script src="../assets/js/script.js"></script>
-    <style>@keyframes fadeInPage { to { opacity: 1; } }</style>
+    <style>
+      @keyframes fadeInPage {
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
   </body>
 </html>
